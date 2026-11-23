@@ -1,0 +1,8 @@
+{
+  "name": "Morphology — 20 Morphing UI Interactions",
+  "description": "An interactive showcase of 20 self-contained React and Tailwind morphing element interactions rendered in their morphed end states.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

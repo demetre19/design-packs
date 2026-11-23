@@ -1,0 +1,6 @@
+{
+  "name": "Mobile Sheet & Navigation Menu Kit",
+  "description": "Ten distinct mobile-first top drop-down and layered bottom-sheet navigation components built with React, Tailwind CSS, and accessible controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

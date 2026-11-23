@@ -1,0 +1,6 @@
+{
+  "name": "Plate — 20 Media Display Components",
+  "description": "A curated specimen of 20 self-contained React and Tailwind image and media display components built with semantic figure/figcaption markup and bespoke SVG/gradient artwork.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Surface Foundry — 20 Decorative Background Components",
+  "description": "A curated specimen catalog of 20 self-contained React and Tailwind CSS decorative background components built purely with SVG and CSS gradients, supporting light and dark opacity variants.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

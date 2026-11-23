@@ -1,0 +1,6 @@
+{
+  "name": "Kinetik Foundry — 20 Kinetic Typography Components",
+  "description": "A curated showcase and playground of 20 self-contained React and Tailwind kinetic typography components (Ktxt1 through Ktxt20) powered by CSS keyframes and staggered per-character delays.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@property --fx-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Fx2: Scroll-down mouse wheel & chevron animations */
+@keyframes fx-mouse-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-chevron-cascade {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+}
+
+/* Fx7: Infinite horizontal marquee */
+@keyframes fx-marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fx-marquee-scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Fx10: Pulse ring attention effect */
+@keyframes fx-pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.65;
+  }
+  75%, 100% {
+    transform: scale(1.38);
+    opacity: 0;
+  }
+}
+
+/* Fx11: Specular shine sweep */
+@keyframes fx-shine-sweep {
+  0% {
+    transform: translateX(-140%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+/* Fx14: Skeleton shimmer */
+@keyframes fx-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Fx15: CSS confetti particle burst */
+@keyframes fx-confetti-burst {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.4);
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0px), var(--ty, -60px)) rotate(var(--rot, 180deg)) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Fx16: SVG checkmark draw */
+@keyframes fx-check-circle {
+  0% {
+    stroke-dashoffset: 164;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fx-check-stroke {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Fx17: Staggered fade-in group */
+@keyframes fx-stagger-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fx20: Animated gradient border */
+@keyframes fx-gradient-rotate {
+  0% {
+    --fx-angle: 0deg;
+  }
+  100% {
+    --fx-angle: 360deg;
+  }
+}
+
+/* Fx4: Typewriter caret blink */
+@keyframes fx-caret-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.fx-animate-wheel {
+  animation: fx-mouse-wheel 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.fx-animate-chevron-1 {
+  animation: fx-chevron-cascade 1.5s ease-in-out infinite;
+}
+
+.fx-animate-chevron-2 {
+  animation: fx-chevron-cascade 1.5s ease-in-out 0.2s infinite;
+}
+
+.fx-animate-chevron-3 {
+  animation: fx-chevron-cascade 1.5s ease-in-out 0.4s infinite;
+}
+
+.fx-marquee-track {
+  animation: fx-marquee-scroll 22s linear infinite;
+}
+
+.fx-marquee-track-reverse {
+  animation: fx-marquee-scroll-reverse 22s linear infinite;
+}
+
+.fx-marquee-container:hover .fx-marquee-track,
+.fx-marquee-container:hover .fx-marquee-track-reverse,
+.fx-marquee-paused .fx-marquee-track,
+.fx-marquee-paused .fx-marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+.fx-pulse-ring {
+  animation: fx-pulse-ring 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.fx-pulse-ring-delayed {
+  animation: fx-pulse-ring 2s cubic-bezier(0.16, 1, 0.3, 1) 0.75s infinite;
+}
+
+.fx-shine-bar {
+  transform: translateX(-140%) skewX(-20deg);
+}
+
+.group:hover .fx-shine-bar,
+.fx-shine-active .fx-shine-bar {
+  animation: fx-shine-sweep 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fx-skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent 100%
+  );
+  animation: fx-shimmer 1.6s infinite;
+}
+
+.fx-confetti-particle {
+  animation: fx-confetti-burst 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fx-check-circle {
+  stroke-dasharray: 164;
+  stroke-dashoffset: 164;
+  animation: fx-check-circle 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fx-check-mark {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: fx-check-stroke 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+.fx-stagger-item {
+  opacity: 0;
+  animation: fx-stagger-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fx-gradient-border-box {
+  background: conic-gradient(
+    from var(--fx-angle),
+    #e4e4e7 0deg,
+    #2563eb 75deg,
+    #0ea5e9 135deg,
+    #e4e4e7 210deg,
+    #18181b 285deg,
+    #e4e4e7 360deg
+  );
+  animation: fx-gradient-rotate 4s linear infinite;
+}
+
+.fx-gradient-border-paused {
+  animation-play-state: paused;
+}
+
+.fx-caret {
+  animation: fx-caret-blink 0.9s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fx-animate-wheel,
+  .fx-animate-chevron-1,
+  .fx-animate-chevron-2,
+  .fx-animate-chevron-3,
+  .fx-marquee-track,
+  .fx-marquee-track-reverse,
+  .fx-pulse-ring,
+  .fx-pulse-ring-delayed,
+  .fx-skeleton-shimmer::after,
+  .fx-gradient-border-box {
+    animation: none;
+  }
+}

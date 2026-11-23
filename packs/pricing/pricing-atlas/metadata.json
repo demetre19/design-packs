@@ -1,0 +1,6 @@
+{
+  "name": "Pricing Atlas",
+  "description": "Interactive showcase of 40 self-contained React and Tailwind CSS pricing sections across 10 topologies and 4 visual styles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

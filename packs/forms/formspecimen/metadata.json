@@ -1,0 +1,6 @@
+{
+  "name": "FormSpecimen",
+  "description": "A catalog of 20 interactive, accessible React and Tailwind CSS form components spanning contact, application, search, filter, scheduling, upload, settings, address, survey, and inline-edit patterns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

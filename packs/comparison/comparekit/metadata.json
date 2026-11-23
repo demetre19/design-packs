@@ -1,0 +1,6 @@
+{
+  "name": "CompareKit — 20 Comparison Components",
+  "description": "A collection of 20 self-contained React and Tailwind CSS comparison components spanning feature matrices, before/after views, competitor tables, spec sheets, pricing grids, mobile cards, pros/cons, and version comparisons.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

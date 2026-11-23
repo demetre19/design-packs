@@ -1,0 +1,6 @@
+{
+  "name": "Kinetic",
+  "description": "A curated library of 20 self-contained React and Tailwind micro-interaction and animation components.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

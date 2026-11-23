@@ -1,0 +1,6 @@
+{
+  "name": "Badge Foundry",
+  "description": "20 self-contained React and Tailwind CSS badge, ribbon, sticker, seal, and chip components with custom SVG geometry and light/dark theme support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

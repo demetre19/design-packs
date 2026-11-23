@@ -1,0 +1,8 @@
+{
+  "name": "Modal Navigation Studio",
+  "description": "Twenty distinct, searchable centered modal navigation menus spanning six structural topologies and four aesthetic families.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

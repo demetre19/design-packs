@@ -1,0 +1,6 @@
+{
+  "name": "Wayfinding Atlas",
+  "description": "Twenty interactive, accessible React and Tailwind wayfinding UI components spanning steppers, breadcrumbs, page headers, scrollspy anchors, back-navigation, and pagination hybrids.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

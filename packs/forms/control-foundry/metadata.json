@@ -1,0 +1,6 @@
+{
+  "name": "Control Foundry",
+  "description": "Interactive showcase of 20 self-contained React and Tailwind button, toggle, loading, and link control components.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

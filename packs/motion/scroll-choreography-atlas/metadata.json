@@ -1,0 +1,8 @@
+{
+  "name": "Scroll Choreography Atlas",
+  "description": "Twenty self-contained React and Tailwind scroll-choreography specimens built with CSS scroll-driven timelines, sticky stages, and IntersectionObserver choreography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

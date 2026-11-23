@@ -1,0 +1,6 @@
+{
+  "name": "Tabular — 20 Data Table Components",
+  "description": "An interactive showcase of 20 distinct, self-contained React and Tailwind CSS data table components spanning user directories, invoices, orders, documents, nested trees, density modes, and loading/empty states.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

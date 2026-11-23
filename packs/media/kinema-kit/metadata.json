@@ -1,0 +1,6 @@
+{
+  "name": "Kinema Kit — Embedded Media Components",
+  "description": "20 self-contained React and Tailwind video, audio, and embedded media UI components with functional playback controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

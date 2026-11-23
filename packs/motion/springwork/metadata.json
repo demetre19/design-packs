@@ -1,0 +1,6 @@
+{
+  "name": "Springwork — 20 Physics-Feel UI Interactions",
+  "description": "An interactive catalog of 20 self-contained React and Tailwind physics-feel UI components powered by spring and overshoot cubic-bezier curves.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

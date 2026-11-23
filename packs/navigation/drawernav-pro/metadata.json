@@ -1,0 +1,6 @@
+{
+  "name": "LeftRail — 10 Slide-In Navigation Drawers",
+  "description": "Collection of 10 distinct, self-contained React and Tailwind left slide-in navigation drawer components spanning minimal, bold, dark, and warm design systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Microcraft — 20 Interactive Micro-Components",
+  "description": "A curated showcase of 20 self-contained React and Tailwind micro-interaction components including tooltips, popovers, dropdowns, context menus, hover cards, command palettes, and status indicators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

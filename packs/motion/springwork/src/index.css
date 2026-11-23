@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f6f6f4;
+    color: #141413;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Physics Keyframe Animations using overshoot & damped spring curves */
+@keyframes phys-jelly {
+  0% {
+    transform: scale(1, 1);
+  }
+  20% {
+    transform: scale(1.28, 0.74);
+  }
+  42% {
+    transform: scale(0.8, 1.24);
+  }
+  64% {
+    transform: scale(1.1, 0.92);
+  }
+  82% {
+    transform: scale(0.96, 1.04);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes phys-pendulum {
+  0% {
+    transform: rotate(0deg);
+  }
+  14% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  68% {
+    transform: rotate(-6deg);
+  }
+  84% {
+    transform: rotate(2.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes phys-fall-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scaleY(1.06) rotate(-1.5deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(4px) scaleY(0.95) rotate(0.4deg);
+  }
+  85% {
+    transform: translateY(-2px) scaleY(1.02) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+}
+
+@keyframes phys-toast-bounce {
+  0% {
+    opacity: 0;
+    transform: translateX(28px) scale(0.88);
+  }
+  55% {
+    opacity: 1;
+    transform: translateX(-5px) scale(1.03);
+  }
+  78% {
+    transform: translateX(2px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes phys-wobble {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  18% {
+    transform: rotate(-3.2deg) scale(1.025);
+  }
+  38% {
+    transform: rotate(2.6deg) scale(1.025);
+  }
+  58% {
+    transform: rotate(-1.6deg) scale(1.015);
+  }
+  78% {
+    transform: rotate(0.8deg) scale(1.01);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.01);
+  }
+}
+
+@keyframes phys-shake-denied {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  16% {
+    transform: translateX(-10px);
+  }
+  33% {
+    transform: translateX(9px);
+  }
+  50% {
+    transform: translateX(-7px);
+  }
+  66% {
+    transform: translateX(5px);
+  }
+  83% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes phys-recoil-up {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    transform: translateY(-9px) scale(1.12, 0.92);
+  }
+  70% {
+    transform: translateY(2px) scale(0.96, 1.04);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes phys-recoil-down {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    transform: translateY(9px) scale(1.12, 0.92);
+  }
+  70% {
+    transform: translateY(-2px) scale(0.96, 1.04);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes phys-bumper-hit {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+  }
+  30% {
+    transform: translateX(-4px) scale(0.95);
+  }
+  65% {
+    transform: translateX(3px) scale(1.03);
+  }
+}
+
+@keyframes phys-modal-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.82);
+  }
+  62% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.03);
+  }
+  84% {
+    transform: translateY(1px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-phys-jelly {
+  animation: phys-jelly 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-phys-pendulum {
+  animation: phys-pendulum 1450ms cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.animate-phys-fall {
+  animation: phys-fall-in 560ms cubic-bezier(0.22, 1.35, 0.36, 1) both;
+}
+
+.animate-phys-toast {
+  animation: phys-toast-bounce 460ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.animate-phys-wobble {
+  animation: phys-wobble 560ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-phys-shake {
+  animation: phys-shake-denied 420ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.animate-phys-recoil-up {
+  animation: phys-recoil-up 340ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-phys-recoil-down {
+  animation: phys-recoil-down 340ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-phys-bumper {
+  animation: phys-bumper-hit 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-phys-modal {
+  animation: phys-modal-pop 380ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-phys-jelly,
+  .animate-phys-pendulum,
+  .animate-phys-fall,
+  .animate-phys-toast,
+  .animate-phys-wobble,
+  .animate-phys-shake,
+  .animate-phys-recoil-up,
+  .animate-phys-recoil-down,
+  .animate-phys-bumper,
+  .animate-phys-modal {
+    animation-duration: 1ms !important;
+  }
+}

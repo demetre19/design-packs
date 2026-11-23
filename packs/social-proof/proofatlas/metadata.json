@@ -1,0 +1,8 @@
+{
+  "name": "ProofAtlas — 20 Social Proof Sections",
+  "description": "A curated collection of 20 self-contained React and Tailwind CSS social-proof sections spanning logo clouds, testimonial grids, quote spotlights, rating breakdowns, review cards, case studies, stats bands, and press strips.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

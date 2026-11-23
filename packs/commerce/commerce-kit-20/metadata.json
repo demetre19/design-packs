@@ -1,0 +1,6 @@
+{
+  "name": "Commerce Kit 20 — Purchase Journey Patterns",
+  "description": "Twenty self-contained React and Tailwind e-commerce flow screens spanning multi-step checkouts, single-page checkouts, shopping carts, payment modules, receipts, PDPs, and filterable product archives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

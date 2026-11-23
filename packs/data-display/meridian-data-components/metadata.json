@@ -1,0 +1,6 @@
+{
+  "name": "Meridian Data Components",
+  "description": "A showcase of 20 self-contained React and Tailwind CSS data-display components spanning sortable tables, KPI decks, sparkline rows, feeds, timelines, logs, calendars, trackers, comparisons, leaderboards, and file lists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

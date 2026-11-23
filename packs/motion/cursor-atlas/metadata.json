@@ -1,0 +1,6 @@
+{
+  "name": "Cursor Atlas — 20 Interactive Cursor Components",
+  "description": "An interactive specimen library of 20 self-contained React and Tailwind cursor-interaction components with graceful static resting states.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

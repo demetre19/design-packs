@@ -1,0 +1,73 @@
+import type { ComponentType } from 'react';
+import {
+  Phys1,
+  Phys2,
+  Phys4,
+  Phys5,
+  Phys15,
+  Phys18,
+  Phys19,
+} from './ControlsPhys';
+import {
+  Phys3,
+  Phys10,
+  Phys12,
+  Phys13,
+  Phys14,
+  Phys17,
+  Phys20,
+} from './ContainersPhys';
+import {
+  Phys6,
+  Phys7,
+  Phys8,
+  Phys9,
+  Phys11,
+  Phys16,
+} from './MotionPhys';
+
+export {
+  Phys1,
+  Phys2,
+  Phys3,
+  Phys4,
+  Phys5,
+  Phys6,
+  Phys7,
+  Phys8,
+  Phys9,
+  Phys10,
+  Phys11,
+  Phys12,
+  Phys13,
+  Phys14,
+  Phys15,
+  Phys16,
+  Phys17,
+  Phys18,
+  Phys19,
+  Phys20,
+};
+
+export const PHYS_COMPONENT_MAP: Record<string, ComponentType> = {
+  Phys1,
+  Phys2,
+  Phys3,
+  Phys4,
+  Phys5,
+  Phys6,
+  Phys7,
+  Phys8,
+  Phys9,
+  Phys10,
+  Phys11,
+  Phys12,
+  Phys13,
+  Phys14,
+  Phys15,
+  Phys16,
+  Phys17,
+  Phys18,
+  Phys19,
+  Phys20,
+};

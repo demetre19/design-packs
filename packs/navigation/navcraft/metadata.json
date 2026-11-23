@@ -1,0 +1,6 @@
+{
+  "name": "Navcraft — 20 Navigation Micro-Elements",
+  "description": "An interactive showcase of 20 self-contained semantic React and Tailwind navigation micro-elements including dropdowns, context menus, command palettes, tabs, pagination, segmented controls, trees, docks, and breadcrumbs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

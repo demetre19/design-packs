@@ -1,0 +1,2707 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pricing Sections</title>
+<script src="https://cdn.tailwindcss.com/3.4.1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<style>body{margin:0;background:#fff}</style>
+</head><body>
+<nav class="sticky top-0 z-50 flex gap-1 overflow-x-auto border-b border-slate-200 bg-white/90 px-4 py-2 text-xs font-medium backdrop-blur">
+<a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p1">1</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p2">2</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p3">3</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p4">4</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p5">5</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p6">6</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p7">7</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p8">8</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p9">9</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p10">10</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p11">11</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p12">12</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p13">13</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p14">14</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p15">15</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p16">16</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p17">17</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p18">18</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p19">19</a><a class="rounded px-2 py-1 text-slate-600 hover:bg-slate-100" href="#p20">20</a>
+</nav>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { useState } = React;
+window.Pricing1 = (() => {
+// Pricing1 — 3-tier cards, featured middle column · minimal / professional (light)
+
+const tiers = [
+  {
+    id: "starter",
+    name: "Starter",
+    price: 19,
+    blurb: "For solo builders validating an idea.",
+    features: ["1 workspace", "10,000 events per month", "30-day data retention", "Community support"],
+    cta: "Start with Starter",
+  },
+  {
+    id: "growth",
+    name: "Growth",
+    price: 59,
+    blurb: "For product teams shipping every week.",
+    features: [
+      "5 workspaces",
+      "500,000 events per month",
+      "1-year data retention",
+      "Funnels & retention reports",
+      "Priority email support",
+    ],
+    cta: "Start 14-day trial",
+    featured: true,
+  },
+  {
+    id: "scale",
+    name: "Scale",
+    price: 149,
+    blurb: "For companies with serious data needs.",
+    features: [
+      "Unlimited workspaces",
+      "5M events per month",
+      "Unlimited retention",
+      "Warehouse sync",
+      "SSO & audit logs",
+    ],
+    cta: "Start with Scale",
+  },
+];
+
+function CheckIcon({ className }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={className}>
+      <path
+        fillRule="evenodd"
+        d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function Pricing1() {
+  return (
+    <section aria-labelledby="pricing1-heading" className="bg-slate-50 px-6 py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl">
+        <header className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-indigo-600">Pricing</p>
+          <h2 id="pricing1-heading" className="mt-3 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+            Simple plans for every stage
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            Every plan includes unlimited dashboards, unlimited viewers and a 99.9% uptime SLA.
+          </p>
+        </header>
+
+        <div className="mx-auto mt-16 grid max-w-md gap-8 lg:max-w-none lg:grid-cols-3 lg:items-center">
+          {tiers.map((tier) => {
+            const f = tier.featured;
+            return (
+              <article
+                key={tier.id}
+                aria-labelledby={`pricing1-${tier.id}`}
+                className={
+                  f
+                    ? "relative rounded-3xl bg-slate-900 p-8 shadow-2xl ring-1 ring-slate-900 lg:px-10 lg:py-14"
+                    : "rounded-3xl bg-white p-8 ring-1 ring-slate-200"
+                }
+              >
+                {f && (
+                  <p className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-indigo-500 px-3 py-1 text-xs font-semibold text-white">
+                    Most popular
+                  </p>
+                )}
+                <h3 id={`pricing1-${tier.id}`} className={`text-lg font-semibold ${f ? "text-white" : "text-slate-900"}`}>
+                  {tier.name}
+                </h3>
+                <p className={`mt-2 text-sm leading-6 ${f ? "text-slate-300" : "text-slate-600"}`}>{tier.blurb}</p>
+                <p className="mt-6 flex items-baseline gap-x-1">
+                  <span className={`text-5xl font-semibold tracking-tight ${f ? "text-white" : "text-slate-900"}`}>
+                    ${tier.price}
+                  </span>
+                  <span className={`text-sm ${f ? "text-slate-400" : "text-slate-500"}`}>/month</span>
+                </p>
+                <button
+                  type="button"
+                  className={`mt-8 w-full rounded-lg px-4 py-2.5 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
+                    f
+                      ? "bg-indigo-500 text-white hover:bg-indigo-400 focus-visible:ring-offset-slate-900"
+                      : "bg-white text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300"
+                  }`}
+                >
+                  {tier.cta}
+                </button>
+                <ul role="list" className={`mt-8 space-y-3 text-sm leading-6 ${f ? "text-slate-300" : "text-slate-600"}`}>
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex gap-x-3">
+                      <CheckIcon className={`h-6 w-5 flex-none ${f ? "text-indigo-400" : "text-indigo-600"}`} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing1;
+})();
+
+window.Pricing2 = (() => {
+// Pricing2 — 2-tier cards · bold / colourful
+
+const plans = [
+  {
+    id: "personal",
+    name: "Personal",
+    price: "$0",
+    period: "forever",
+    pitch: "Everything you need to make beautiful things on your own.",
+    features: [
+      "Unlimited canvases",
+      "3 active projects",
+      "1,000+ templates",
+      "Export to PNG & SVG",
+      "Version history (7 days)",
+    ],
+    cta: "Start designing free",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    price: "$12",
+    period: "per month",
+    pitch: "For creators who ship work for clients every single week.",
+    features: [
+      "Unlimited projects",
+      "Brand kits with fonts & colours",
+      "Export to PDF, MP4 & Lottie",
+      "Background remover & AI fill",
+      "Unlimited version history",
+      "Commercial licence for all assets",
+    ],
+    cta: "Go Pro",
+    highlight: true,
+  },
+];
+
+function Tick({ className }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="m5 12 5 5L20 7" />
+    </svg>
+  );
+}
+
+function Pricing2() {
+  return (
+    <section
+      aria-labelledby="pricing2-heading"
+      className="relative overflow-hidden bg-gradient-to-br from-fuchsia-600 via-rose-500 to-orange-400 px-6 py-24"
+    >
+      <div aria-hidden="true" className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-yellow-300/40 blur-3xl" />
+      <div aria-hidden="true" className="absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-violet-700/40 blur-3xl" />
+
+      <div className="relative mx-auto max-w-5xl">
+        <header className="text-center text-white">
+          <h2 id="pricing2-heading" className="text-5xl font-black tracking-tight sm:text-6xl">
+            Make it. <span className="text-yellow-200">Ship it.</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg font-medium text-white/90">
+            Two plans. No surprises. Upgrade or downgrade whenever you like.
+          </p>
+        </header>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {plans.map((plan) => (
+            <article
+              key={plan.id}
+              aria-labelledby={`pricing2-${plan.id}`}
+              className={`flex flex-col rounded-[2rem] p-8 sm:p-10 ${
+                plan.highlight
+                  ? "bg-gray-950 text-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]"
+                  : "bg-white text-gray-900 shadow-xl"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <h3 id={`pricing2-${plan.id}`} className="text-2xl font-extrabold">
+                  {plan.name}
+                </h3>
+                {plan.highlight && (
+                  <span className="rounded-full bg-gradient-to-r from-yellow-300 to-orange-400 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gray-950">
+                    For pros
+                  </span>
+                )}
+              </div>
+              <p className={`mt-3 ${plan.highlight ? "text-gray-300" : "text-gray-600"}`}>{plan.pitch}</p>
+              <p className="mt-8">
+                <span className="text-6xl font-black tracking-tight">{plan.price}</span>
+                <span className={`ml-2 font-semibold ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
+                  {plan.period}
+                </span>
+              </p>
+              <ul role="list" className="mt-8 flex-1 space-y-4">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 font-medium">
+                    <span
+                      className={`mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full ${
+                        plan.highlight ? "bg-gradient-to-br from-fuchsia-500 to-orange-400" : "bg-rose-100 text-rose-600"
+                      }`}
+                    >
+                      <Tick className="h-3.5 w-3.5" />
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={`mt-10 rounded-full px-6 py-4 text-lg font-extrabold transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 ${
+                  plan.highlight
+                    ? "bg-gradient-to-r from-fuchsia-500 via-rose-500 to-orange-400 text-white focus-visible:ring-rose-300"
+                    : "bg-gray-950 text-white focus-visible:ring-gray-400"
+                }`}
+              >
+                {plan.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing2;
+})();
+
+window.Pricing3 = (() => {
+// Pricing3 — monthly / annual toggle (interactive switch) · dark
+
+
+
+const plans = [
+  {
+    id: "hobby",
+    name: "Hobby",
+    monthly: 0,
+    annual: 0,
+    desc: "Send transactional email from side projects.",
+    features: ["3,000 emails / month", "1 sending domain", "Shared IP pool", "3-day log retention"],
+    cta: "Start for free",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    monthly: 20,
+    annual: 16,
+    desc: "For production apps with real users.",
+    features: [
+      "50,000 emails / month",
+      "10 sending domains",
+      "Inbound parsing & webhooks",
+      "30-day log retention",
+      "Email support",
+    ],
+    cta: "Get Pro",
+    featured: true,
+  },
+  {
+    id: "scale",
+    name: "Scale",
+    monthly: 90,
+    annual: 72,
+    desc: "High volume with dedicated infrastructure.",
+    features: [
+      "200,000 emails / month",
+      "Unlimited domains",
+      "Dedicated IP address",
+      "90-day log retention",
+      "SAML SSO",
+      "Shared Slack channel",
+    ],
+    cta: "Get Scale",
+  },
+];
+
+function Pricing3() {
+  const [annual, setAnnual] = useState(true);
+
+  return (
+    <section aria-labelledby="pricing3-heading" className="bg-zinc-950 px-6 py-24 text-zinc-100">
+      <div className="mx-auto max-w-6xl">
+        <header className="text-center">
+          <h2 id="pricing3-heading" className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Email infrastructure, <span className="text-emerald-400">priced for builders</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-zinc-400">
+            Start free, then pay only as you grow. Overage is $0.40 per 1,000 emails on any paid plan.
+          </p>
+
+          <div className="mt-10 inline-flex items-center gap-4 text-sm font-medium">
+            <span className={annual ? "text-zinc-500" : "text-white"} aria-hidden="true">
+              Monthly
+            </span>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={annual}
+              aria-label="Bill annually"
+              onClick={() => setAnnual((a) => !a)}
+              className={`relative inline-flex h-7 w-12 flex-none items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+                annual ? "bg-emerald-500" : "bg-zinc-700"
+              }`}
+            >
+              <span
+                className={`inline-block h-5 w-5 rounded-full bg-white shadow transition-transform ${
+                  annual ? "translate-x-6" : "translate-x-1"
+                }`}
+              />
+            </button>
+            <span className={annual ? "text-white" : "text-zinc-500"} aria-hidden="true">
+              Annually{" "}
+              <span className="ml-1 rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs text-emerald-300">Save 20%</span>
+            </span>
+          </div>
+        </header>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {plans.map((p) => {
+            const price = annual ? p.annual : p.monthly;
+            return (
+              <article
+                key={p.id}
+                aria-labelledby={`pricing3-${p.id}`}
+                className={`flex flex-col rounded-2xl border p-8 ${
+                  p.featured
+                    ? "border-emerald-500/60 bg-gradient-to-b from-emerald-500/10 to-transparent"
+                    : "border-zinc-800 bg-zinc-900/50"
+                }`}
+              >
+                <h3 id={`pricing3-${p.id}`} className="font-mono text-sm uppercase tracking-widest text-emerald-400">
+                  {p.name}
+                </h3>
+                <p className="mt-6 flex items-baseline gap-1">
+                  <span className="text-5xl font-bold tracking-tight text-white">${price}</span>
+                  <span className="text-zinc-500">/mo</span>
+                </p>
+                <p className="mt-1 h-5 text-xs text-zinc-500" aria-live="polite">
+                  {price === 0 ? "Free forever" : annual ? `$${price * 12} billed yearly` : "Billed monthly"}
+                </p>
+                <p className="mt-4 text-sm text-zinc-400">{p.desc}</p>
+                <ul role="list" className="mt-8 flex-1 space-y-3 border-t border-zinc-800 pt-8 text-sm">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex gap-3 text-zinc-300">
+                      <span aria-hidden="true" className="font-mono text-emerald-400">
+                        →
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  className={`mt-8 rounded-lg px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                    p.featured
+                      ? "bg-emerald-500 text-zinc-950 hover:bg-emerald-400"
+                      : "bg-zinc-800 text-white hover:bg-zinc-700"
+                  }`}
+                >
+                  {p.cta}
+                </button>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing3;
+})();
+
+window.Pricing4 = (() => {
+// Pricing4 — horizontal comparison table with checkmarks · light / professional
+
+const plans = [
+  { id: "solo", name: "Solo", price: "$15", note: "1 user", cta: "Choose Solo" },
+  { id: "business", name: "Business", price: "$45", note: "Up to 5 users", cta: "Choose Business", featured: true },
+  { id: "firm", name: "Firm", price: "$110", note: "Unlimited users", cta: "Choose Firm" },
+];
+
+// value: true = included, false = not included, string = limit
+const groups = [
+  {
+    name: "Bookkeeping",
+    rows: [
+      { feature: "Bank connections", values: ["2", "10", "Unlimited"] },
+      { feature: "Automatic categorisation", values: [true, true, true] },
+      { feature: "Receipt capture", values: ["50 / mo", "Unlimited", "Unlimited"] },
+      { feature: "Multi-currency", values: [false, true, true] },
+    ],
+  },
+  {
+    name: "Invoicing & payments",
+    rows: [
+      { feature: "Custom invoices", values: [true, true, true] },
+      { feature: "Recurring invoices", values: [false, true, true] },
+      { feature: "Card & ACH payments", values: [true, true, true] },
+      { feature: "Automatic late reminders", values: [false, true, true] },
+    ],
+  },
+  {
+    name: "Reporting & control",
+    rows: [
+      { feature: "P&L and balance sheet", values: [true, true, true] },
+      { feature: "Budget vs. actuals", values: [false, true, true] },
+      { feature: "Approval workflows", values: [false, false, true] },
+      { feature: "Accountant access", values: [false, "1 seat", "Unlimited"] },
+    ],
+  },
+];
+
+function Cell({ value }) {
+  if (value === true)
+    return (
+      <>
+        <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="mx-auto h-5 w-5 text-teal-600">
+          <path
+            fillRule="evenodd"
+            d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.86-9.8a.75.75 0 0 0-1.22-.88l-3.24 4.5-1.6-1.6a.75.75 0 1 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.09l3.73-5.24Z"
+            clipRule="evenodd"
+          />
+        </svg>
+        <span className="sr-only">Included</span>
+      </>
+    );
+  if (value === false)
+    return (
+      <>
+        <span aria-hidden="true" className="text-slate-300">
+          —
+        </span>
+        <span className="sr-only">Not included</span>
+      </>
+    );
+  return <span className="text-sm font-medium text-slate-700">{value}</span>;
+}
+
+function Pricing4() {
+  return (
+    <section aria-labelledby="pricing4-heading" className="bg-white px-6 py-24">
+      <div className="mx-auto max-w-5xl">
+        <header className="max-w-2xl">
+          <h2 id="pricing4-heading" className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+            Compare plans
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Accounting software for small businesses. All prices per month, billed monthly, excluding tax.
+          </p>
+        </header>
+
+        <div className="relative mt-12 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[640px] border-collapse text-left">
+            <caption className="sr-only">Feature comparison across Solo, Business and Firm plans</caption>
+            <thead>
+              <tr className="border-b border-slate-200">
+                <td className="w-2/5 p-6 align-bottom text-sm text-slate-500">Prices in USD</td>
+                {plans.map((p) => (
+                  <th
+                    key={p.id}
+                    scope="col"
+                    className={`p-6 text-center align-top ${p.featured ? "bg-teal-50" : ""}`}
+                  >
+                    <span className="block text-sm font-semibold text-slate-900">{p.name}</span>
+                    {p.featured && (
+                      <span className="mt-1 inline-block rounded bg-teal-600 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                        Recommended
+                      </span>
+                    )}
+                    <span className="mt-3 block text-3xl font-semibold tracking-tight text-slate-900">
+                      {p.price}
+                      <span className="text-sm font-normal text-slate-500">/mo</span>
+                    </span>
+                    <span className="block text-xs font-normal text-slate-500">{p.note}</span>
+                    <button
+                      type="button"
+                      className={`mt-4 w-full rounded-md px-3 py-2 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 ${
+                        p.featured
+                          ? "bg-teal-600 text-white hover:bg-teal-700"
+                          : "border border-slate-300 text-slate-800 hover:bg-slate-50"
+                      }`}
+                    >
+                      {p.cta}
+                    </button>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            {groups.map((g) => (
+              <tbody key={g.name}>
+                <tr className="bg-slate-50">
+                  <th
+                    scope="colgroup"
+                    colSpan={4}
+                    className="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-slate-500"
+                  >
+                    {g.name}
+                  </th>
+                </tr>
+                {g.rows.map((row) => (
+                  <tr key={row.feature} className="border-t border-slate-100">
+                    <th scope="row" className="px-6 py-4 text-sm font-normal text-slate-700">
+                      {row.feature}
+                    </th>
+                    {row.values.map((v, i) => (
+                      <td key={plans[i].id} className={`px-6 py-4 text-center ${plans[i].featured ? "bg-teal-50/60" : ""}`}>
+                        <Cell value={v} />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            ))}
+          </table>
+        </div>
+
+        <ul role="list" className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+          <li>✓ 30-day free trial on every plan</li>
+          <li>✓ Free migration from QuickBooks & Xero</li>
+          <li>✓ Cancel any time</li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+return Pricing4;
+})();
+
+window.Pricing5 = (() => {
+// Pricing5 — single hero price + feature list split · editorial
+
+const included = [
+  "Every long-form essay, the day it's published",
+  "The full archive — 14 years, 2,300+ pieces",
+  "The Sunday Letter from the editors",
+  "Members-only audio editions, read by the authors",
+  "Annotated reading lists each season",
+  "Comment on and discuss every article",
+  "Two gift articles to share each month",
+  "An invitation to the annual members' salon",
+];
+
+function Pricing5() {
+  return (
+    <section aria-labelledby="pricing5-heading" className="bg-[#f5efe4] px-6 py-24 text-stone-900">
+      <div className="mx-auto grid max-w-6xl gap-16 border-y-2 border-stone-900 py-16 lg:grid-cols-[1fr_1.2fr]">
+        <div className="flex flex-col">
+          <p className="font-serif text-sm uppercase tracking-[0.3em] text-red-800">Membership</p>
+          <h2 id="pricing5-heading" className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+            One subscription.
+            <br />
+            <em className="font-normal">Everything we write.</em>
+          </h2>
+
+          <div className="mt-12">
+            <p className="flex items-start gap-2 font-serif">
+              <span className="mt-3 text-3xl">$</span>
+              <span className="text-[7rem] leading-none tracking-tighter">8</span>
+              <span className="mt-auto pb-4 text-lg italic text-stone-600">a month</span>
+            </p>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-stone-600">
+              Or $80 a year — two months on us. Students and educators pay half; just use your institutional
+              email.
+            </p>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-6">
+            <button
+              type="button"
+              className="bg-stone-900 px-8 py-4 font-serif text-lg text-[#f5efe4] transition hover:bg-red-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-800 focus-visible:ring-offset-4 focus-visible:ring-offset-[#f5efe4]"
+            >
+              Become a member
+            </button>
+            <a href="#gift" className="font-serif text-lg underline decoration-1 underline-offset-4 hover:text-red-800">
+              Give it as a gift
+            </a>
+          </div>
+        </div>
+
+        <div className="lg:border-l lg:border-stone-900/20 lg:pl-16">
+          <h3 className="font-serif text-2xl italic">What membership includes</h3>
+          <ul role="list" className="mt-8 divide-y divide-stone-900/15 border-t border-stone-900/15">
+            {included.map((item, i) => (
+              <li key={item} className="flex gap-6 py-4">
+                <span aria-hidden="true" className="w-6 flex-none font-serif text-sm tabular-nums text-red-800">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-serif text-lg leading-snug">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 font-serif text-sm italic text-stone-600">
+            Reader-funded since 2012. No advertising, ever. Cancel in two clicks.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing5;
+})();
+
+window.Pricing6 = (() => {
+// Pricing6 — usage slider / cost calculator · dark (indigo)
+
+
+
+const REQUEST_STEPS = [100_000, 250_000, 500_000, 1_000_000, 2_500_000, 5_000_000, 10_000_000, 25_000_000];
+const FREE_REQUESTS = 100_000;
+const TIER1_LIMIT = 1_000_000; // requests up to 1M are billed at the tier-1 rate
+const TIER1_RATE = 0.4; // $ per 1k requests
+const TIER2_RATE = 0.25; // $ per 1k requests above 1M
+const FREE_GB = 1;
+const STORAGE_RATE = 0.25; // $ per GB-month
+
+const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });
+const compact = (n) => n.toLocaleString("en-US", { notation: "compact", maximumFractionDigits: 1 });
+
+function estimate(requests, storage) {
+  const t1 = Math.max(0, Math.min(requests, TIER1_LIMIT) - FREE_REQUESTS);
+  const t2 = Math.max(0, requests - TIER1_LIMIT);
+  const req1 = (t1 / 1000) * TIER1_RATE;
+  const req2 = (t2 / 1000) * TIER2_RATE;
+  const store = Math.max(0, storage - FREE_GB) * STORAGE_RATE;
+  return { req1, req2, store, total: req1 + req2 + store };
+}
+
+const features = [
+  "Hybrid vector + keyword search",
+  "Metadata filtering on any field",
+  "Serverless — scales to zero",
+  "Point-in-time backups",
+  "99.95% uptime SLA on paid usage",
+];
+
+function Pricing6() {
+  const [step, setStep] = useState(3);
+  const [storage, setStorage] = useState(20);
+  const requests = REQUEST_STEPS[step];
+  const cost = estimate(requests, storage);
+
+  return (
+    <section aria-labelledby="pricing6-heading" className="bg-[#0b0b1f] px-6 py-24 text-indigo-50">
+      <div className="mx-auto max-w-6xl">
+        <header className="max-w-2xl">
+          <p className="text-sm font-semibold text-indigo-400">Usage-based pricing</p>
+          <h2 id="pricing6-heading" className="mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            Pay for queries, not servers
+          </h2>
+          <p className="mt-4 text-indigo-200/70">
+            The first 100k queries and 1 GB of storage are free every month. Estimate your bill below.
+          </p>
+        </header>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-5">
+          <form
+            className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 p-8 lg:col-span-3"
+            onSubmit={(e) => e.preventDefault()}
+            aria-label="Cost estimator"
+          >
+            <div>
+              <div className="flex items-baseline justify-between">
+                <label htmlFor="p6-requests" className="text-sm font-medium text-indigo-100">
+                  Queries per month
+                </label>
+                <output htmlFor="p6-requests" className="text-2xl font-semibold tabular-nums text-white">
+                  {compact(requests)}
+                </output>
+              </div>
+              <input
+                id="p6-requests"
+                type="range"
+                min={0}
+                max={REQUEST_STEPS.length - 1}
+                step={1}
+                value={step}
+                onChange={(e) => setStep(Number(e.target.value))}
+                aria-valuetext={`${requests.toLocaleString()} queries`}
+                className="mt-4 w-full accent-indigo-400"
+              />
+              <div aria-hidden="true" className="mt-2 flex justify-between text-xs text-indigo-300/60">
+                <span>100K</span>
+                <span>25M</span>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <div className="flex items-baseline justify-between">
+                <label htmlFor="p6-storage" className="text-sm font-medium text-indigo-100">
+                  Vector storage
+                </label>
+                <output htmlFor="p6-storage" className="text-2xl font-semibold tabular-nums text-white">
+                  {storage} GB
+                </output>
+              </div>
+              <input
+                id="p6-storage"
+                type="range"
+                min={1}
+                max={500}
+                value={storage}
+                onChange={(e) => setStorage(Number(e.target.value))}
+                aria-valuetext={`${storage} gigabytes`}
+                className="mt-4 w-full accent-indigo-400"
+              />
+              <div aria-hidden="true" className="mt-2 flex justify-between text-xs text-indigo-300/60">
+                <span>1 GB</span>
+                <span>500 GB</span>
+              </div>
+            </div>
+
+            <dl className="mt-10 space-y-2 border-t border-indigo-500/20 pt-6 text-sm">
+              <div className="flex justify-between">
+                <dt className="text-indigo-200/70">Queries up to 1M · $0.40 / 1k</dt>
+                <dd className="tabular-nums">{usd(cost.req1)}</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-indigo-200/70">Queries above 1M · $0.25 / 1k</dt>
+                <dd className="tabular-nums">{usd(cost.req2)}</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-indigo-200/70">Storage · $0.25 / GB-month</dt>
+                <dd className="tabular-nums">{usd(cost.store)}</dd>
+              </div>
+            </dl>
+          </form>
+
+          <article
+            aria-labelledby="pricing6-total"
+            className="flex flex-col rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-8 text-white lg:col-span-2"
+          >
+            <h3 id="pricing6-total" className="text-sm font-medium text-indigo-100">
+              Estimated monthly cost
+            </h3>
+            <p className="mt-2 text-6xl font-semibold tabular-nums tracking-tight" aria-live="polite">
+              {usd(cost.total)}
+            </p>
+            <p className="mt-2 text-sm text-indigo-100">
+              {cost.total === 0 ? "Inside the free tier — no card needed." : "Billed at the end of each month."}
+            </p>
+            <ul role="list" className="mt-8 flex-1 space-y-3 text-sm">
+              {features.map((f) => (
+                <li key={f} className="flex gap-3">
+                  <span aria-hidden="true">✦</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <button
+              type="button"
+              className="mt-8 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-indigo-600"
+            >
+              Create a free index
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing6;
+})();
+
+window.Pricing7 = (() => {
+// Pricing7 — tier cards with per-feature limits · light-warm
+
+const tiers = [
+  {
+    id: "gathering",
+    name: "Gathering",
+    price: 0,
+    tagline: "For a book club, a running crew, a supper club.",
+    limits: [
+      ["Members", "50"],
+      ["Events per month", "4"],
+      ["Admins", "1"],
+      ["File storage", "1 GB"],
+      ["Ticket fees", "5% + 30¢"],
+    ],
+    features: ["Event pages & RSVPs", "Group chat", "Email reminders"],
+    cta: "Start a community",
+  },
+  {
+    id: "neighbourhood",
+    name: "Neighbourhood",
+    price: 24,
+    tagline: "For growing groups with regular programming.",
+    limits: [
+      ["Members", "1,000"],
+      ["Events per month", "Unlimited"],
+      ["Admins", "5"],
+      ["File storage", "25 GB"],
+      ["Ticket fees", "2% + 30¢"],
+    ],
+    features: ["Everything in Gathering", "Paid memberships", "Custom domain", "Attendance insights"],
+    cta: "Choose Neighbourhood",
+    featured: true,
+  },
+  {
+    id: "town",
+    name: "Town",
+    price: 79,
+    tagline: "For organisations running many chapters.",
+    limits: [
+      ["Members", "Unlimited"],
+      ["Events per month", "Unlimited"],
+      ["Admins", "Unlimited"],
+      ["File storage", "250 GB"],
+      ["Ticket fees", "0% + 30¢"],
+    ],
+    features: ["Everything in Neighbourhood", "Multiple chapters", "Remove our branding", "Phone support"],
+    cta: "Choose Town",
+  },
+];
+
+function Pricing7() {
+  return (
+    <section aria-labelledby="pricing7-heading" className="bg-[#fbf6ee] px-6 py-24 text-stone-800">
+      <div className="mx-auto max-w-6xl">
+        <header className="mx-auto max-w-2xl text-center">
+          <h2 id="pricing7-heading" className="text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl">
+            Bring your people together
+          </h2>
+          <p className="mt-4 text-lg text-stone-600">
+            Clear limits, no hidden fees. Outgrow a plan? We'll never cut anyone off mid-event.
+          </p>
+        </header>
+
+        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+          {tiers.map((t) => (
+            <article
+              key={t.id}
+              aria-labelledby={`pricing7-${t.id}`}
+              className={`flex flex-col rounded-3xl p-8 ${
+                t.featured ? "bg-amber-400 text-stone-900 shadow-lg shadow-amber-600/20" : "bg-white ring-1 ring-stone-200"
+              }`}
+            >
+              <h3 id={`pricing7-${t.id}`} className="text-xl font-bold">
+                {t.name}
+              </h3>
+              <p className={`mt-1 text-sm ${t.featured ? "text-stone-800" : "text-stone-500"}`}>{t.tagline}</p>
+              <p className="mt-6">
+                <span className="text-5xl font-bold tracking-tight">{t.price === 0 ? "Free" : `$${t.price}`}</span>
+                {t.price > 0 && <span className="ml-1 text-stone-600">/ month</span>}
+              </p>
+
+              <dl className={`mt-8 divide-y rounded-2xl text-sm ${t.featured ? "divide-amber-500 bg-amber-300/60" : "divide-stone-100 bg-stone-50"}`}>
+                {t.limits.map(([label, value]) => (
+                  <div key={label} className="flex items-center justify-between px-4 py-3">
+                    <dt className={t.featured ? "text-stone-700" : "text-stone-500"}>{label}</dt>
+                    <dd className="font-semibold tabular-nums">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <ul role="list" className="mt-6 flex-1 space-y-2 text-sm">
+                {t.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" className={`h-4 w-4 flex-none ${t.featured ? "text-stone-900" : "text-amber-500"}`} fill="currentColor">
+                      <circle cx="8" cy="8" r="3" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                type="button"
+                className={`mt-8 rounded-full px-5 py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 ${
+                  t.featured ? "bg-stone-900 text-amber-50 hover:bg-stone-700" : "bg-amber-100 text-stone-900 hover:bg-amber-200"
+                }`}
+              >
+                {t.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing7;
+})();
+
+window.Pricing8 = (() => {
+// Pricing8 — pricing cards + FAQ strip below · minimal (monochrome)
+
+const plans = [
+  {
+    id: "free",
+    name: "Free",
+    price: "$0",
+    features: ["Up to 50 documents", "Markdown & rich text", "Sync across 2 devices", "Export to PDF"],
+    cta: "Get started",
+  },
+  {
+    id: "writer",
+    name: "Writer",
+    price: "$6",
+    features: [
+      "Unlimited documents",
+      "Unlimited devices",
+      "Focus mode & typewriter scrolling",
+      "Publish to Ghost, WordPress & Medium",
+      "Full revision history",
+    ],
+    cta: "Upgrade to Writer",
+    featured: true,
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    price: "$14",
+    features: [
+      "Everything in Writer",
+      "Shared folders for up to 10 people",
+      "Inline comments & suggestions",
+      "Style guide enforcement",
+    ],
+    cta: "Try Studio",
+  },
+];
+
+const faqs = [
+  {
+    q: "Can I switch plans later?",
+    a: "Yes. Upgrades take effect immediately and are prorated; downgrades apply at the end of your billing period.",
+  },
+  {
+    q: "What happens to my documents if I cancel?",
+    a: "Nothing is deleted. You keep read and export access forever, and the Free plan limits apply to new documents.",
+  },
+  {
+    q: "Do you offer discounts for students?",
+    a: "Students and teachers get Writer free for as long as they're enrolled. Verify with a school email in Settings.",
+  },
+  {
+    q: "Is my writing private?",
+    a: "Documents are encrypted at rest and in transit. We never train models on your writing or sell your data.",
+  },
+  {
+    q: "Which payment methods do you accept?",
+    a: "All major cards, Apple Pay, Google Pay and PayPal. Annual Studio plans can also be paid by invoice.",
+  },
+  {
+    q: "Do you offer refunds?",
+    a: "If you're not happy within 30 days of paying, email us and we'll refund you in full — no questions asked.",
+  },
+];
+
+function Pricing8() {
+  return (
+    <section aria-labelledby="pricing8-heading" className="bg-white px-6 py-24 text-neutral-900">
+      <div className="mx-auto max-w-5xl">
+        <header>
+          <h2 id="pricing8-heading" className="text-4xl font-medium tracking-tight">
+            Pricing
+          </h2>
+          <p className="mt-2 text-neutral-500">Billed monthly. Prices in USD.</p>
+        </header>
+
+        <div className="mt-12 grid border border-neutral-900 md:grid-cols-3">
+          {plans.map((p, i) => (
+            <article
+              key={p.id}
+              aria-labelledby={`pricing8-${p.id}`}
+              className={`flex flex-col p-8 ${i > 0 ? "border-t border-neutral-900 md:border-l md:border-t-0" : ""} ${
+                p.featured ? "bg-neutral-900 text-white" : ""
+              }`}
+            >
+              <h3 id={`pricing8-${p.id}`} className="text-sm font-medium uppercase tracking-widest">
+                {p.name}
+              </h3>
+              <p className="mt-6 text-5xl font-light tracking-tight">
+                {p.price}
+                <span className={`text-base ${p.featured ? "text-neutral-400" : "text-neutral-500"}`}> /mo</span>
+              </p>
+              <ul role="list" className={`mt-8 flex-1 space-y-2 text-sm ${p.featured ? "text-neutral-300" : "text-neutral-600"}`}>
+                {p.features.map((f) => (
+                  <li key={f} className="flex gap-2">
+                    <span aria-hidden="true">+</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={`mt-10 border px-4 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                  p.featured
+                    ? "border-white bg-white text-neutral-900 hover:bg-neutral-200 focus-visible:ring-white focus-visible:ring-offset-neutral-900"
+                    : "border-neutral-900 hover:bg-neutral-900 hover:text-white focus-visible:ring-neutral-900"
+                }`}
+              >
+                {p.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+
+        <section aria-labelledby="pricing8-faq" className="mt-20 border-t border-neutral-200 pt-12">
+          <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
+            <div>
+              <h3 id="pricing8-faq" className="text-2xl font-medium tracking-tight">
+                Questions
+              </h3>
+              <p className="mt-2 text-sm text-neutral-500">
+                Something else? <a href="mailto:hello@example.com" className="underline underline-offset-2 hover:text-neutral-900">Email us</a>.
+              </p>
+            </div>
+            <div className="divide-y divide-neutral-200 border-y border-neutral-200">
+              {faqs.map((f) => (
+                <details key={f.q} className="group py-4">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium marker:hidden [&::-webkit-details-marker]:hidden">
+                    {f.q}
+                    <span aria-hidden="true" className="ml-4 text-xl font-light transition-transform group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 pr-8 text-sm leading-6 text-neutral-600">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  );
+}
+
+return Pricing8;
+})();
+
+window.Pricing9 = (() => {
+// Pricing9 — minimalist text-only rows · editorial / monospace (type foundry licences)
+
+const licences = [
+  {
+    id: "personal",
+    name: "Personal",
+    price: "€40",
+    summary: "Non-commercial projects by one person.",
+    includes: ["Desktop: 1 user", "Web: 10k pageviews / mo", "Personal portfolio & gifts"],
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    price: "€220",
+    summary: "Small teams making work for clients.",
+    includes: ["Desktop: 5 users", "Web: 500k pageviews / mo", "Print & packaging", "Social media"],
+  },
+  {
+    id: "agency",
+    name: "Agency",
+    price: "€680",
+    summary: "Brand identities and campaigns at scale.",
+    includes: ["Desktop: 25 users", "Web: 5M pageviews / mo", "Apps: 2 titles", "Logos & trademarks"],
+  },
+  {
+    id: "broadcast",
+    name: "Broadcast",
+    price: "Ask",
+    summary: "Film, TV, games and unlimited use.",
+    includes: ["Unlimited users", "Unlimited web & app", "On-screen & motion", "Custom glyphs on request"],
+  },
+];
+
+function Pricing9() {
+  return (
+    <section aria-labelledby="pricing9-heading" className="bg-[#fafaf7] px-6 py-24 font-mono text-neutral-900">
+      <div className="mx-auto max-w-5xl">
+        <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">Grotesk Nº 7 — Licensing</p>
+            <h2 id="pricing9-heading" className="mt-3 text-3xl tracking-tight sm:text-4xl">
+              Choose a licence
+            </h2>
+          </div>
+          <p className="max-w-xs text-xs leading-5 text-neutral-500">
+            One-time payment. Full family: 14 weights, roman &amp; italic. Prices exclude VAT.
+          </p>
+        </header>
+
+        <ol role="list" className="mt-14 border-t border-neutral-900">
+          {licences.map((l, i) => (
+            <li key={l.id} className="border-b border-neutral-300">
+              <article
+                aria-labelledby={`pricing9-${l.id}`}
+                className="grid gap-4 py-8 md:grid-cols-[3rem_1fr_1.4fr_auto] md:items-baseline md:gap-8"
+              >
+                <span aria-hidden="true" className="text-xs text-neutral-400">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 id={`pricing9-${l.id}`} className="text-xl">
+                    {l.name}
+                  </h3>
+                  <p className="mt-1 text-xs leading-5 text-neutral-500">{l.summary}</p>
+                </div>
+                <ul role="list" className="space-y-1 text-xs leading-5 text-neutral-700">
+                  {l.includes.map((x) => (
+                    <li key={x}>— {x}</li>
+                  ))}
+                </ul>
+                <div className="flex items-baseline justify-between gap-8 md:flex-col md:items-end md:gap-2">
+                  <p className="text-2xl tabular-nums">{l.price}</p>
+                  {l.price === "Ask" ? (
+                    <a
+                      href="mailto:licensing@example.com"
+                      className="text-xs uppercase tracking-widest underline underline-offset-4 hover:no-underline"
+                    >
+                      Request quote ↗
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      className="text-xs uppercase tracking-widest underline underline-offset-4 hover:no-underline focus:outline-none focus-visible:bg-neutral-900 focus-visible:text-white"
+                    >
+                      Add to cart →
+                    </button>
+                  )}
+                </div>
+              </article>
+            </li>
+          ))}
+        </ol>
+
+        <p className="mt-8 text-xs text-neutral-500">
+          Trial fonts are free for pitches and mock-ups. Need something in between?{" "}
+          <a href="mailto:licensing@example.com" className="underline underline-offset-4">
+            Write to us.
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+return Pricing9;
+})();
+
+window.Pricing10 = (() => {
+// Pricing10 — cards with badges (Popular / Best Value) · bold / colourful
+
+const plans = [
+  {
+    id: "monthly",
+    name: "Monthly",
+    price: "$12.99",
+    per: "per month",
+    detail: "Billed every month",
+    features: ["All 40+ languages", "Offline lessons", "Speaking practice with AI tutor", "Cancel anytime"],
+    cta: "Start monthly",
+    card: "bg-sky-200",
+    button: "bg-sky-900 text-white",
+  },
+  {
+    id: "quarterly",
+    name: "Quarterly",
+    price: "$9.99",
+    per: "per month",
+    detail: "$29.97 billed every 3 months",
+    features: ["Everything in Monthly", "Personal study plan", "Progress reports", "Streak freeze × 3"],
+    cta: "Start quarterly",
+    badge: { label: "Popular", style: "bg-pink-500 text-white" },
+    card: "bg-lime-300",
+    button: "bg-lime-950 text-lime-50",
+  },
+  {
+    id: "annual",
+    name: "Annual",
+    price: "$6.67",
+    per: "per month",
+    detail: "$79.99 billed yearly — save 48%",
+    features: ["Everything in Quarterly", "Live group classes", "Certificates of completion", "Unlimited streak freezes"],
+    cta: "Start annual",
+    badge: { label: "Best value", style: "bg-black text-yellow-300" },
+    card: "bg-yellow-300",
+    button: "bg-black text-yellow-300",
+  },
+  {
+    id: "family",
+    name: "Family",
+    price: "$3.33",
+    per: "per person / month",
+    detail: "$199.99 a year for up to 5 people",
+    features: ["Everything in Annual", "Up to 5 learner profiles", "Shared family leaderboard", "Parental controls"],
+    cta: "Start family plan",
+    card: "bg-pink-200",
+    button: "bg-pink-900 text-white",
+  },
+];
+
+function Pricing10() {
+  return (
+    <section aria-labelledby="pricing10-heading" className="bg-violet-700 px-6 py-24">
+      <div className="mx-auto max-w-7xl">
+        <header className="text-center">
+          <h2 id="pricing10-heading" className="text-5xl font-black tracking-tight text-white sm:text-6xl">
+            Learn faster. <span className="text-yellow-300">Pay less.</span>
+          </h2>
+          <p className="mt-4 text-lg font-semibold text-violet-100">Every plan starts with a free 7-day trial.</p>
+        </header>
+
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {plans.map((p) => (
+            <article
+              key={p.id}
+              aria-labelledby={`pricing10-${p.id}`}
+              className={`relative flex flex-col rounded-3xl border-4 border-black p-7 shadow-[8px_8px_0_0_#000] ${p.card}`}
+            >
+              {p.badge && (
+                <p
+                  className={`absolute -top-4 right-6 -rotate-3 rounded-full border-2 border-black px-4 py-1 text-sm font-black uppercase tracking-wide ${p.badge.style}`}
+                >
+                  {p.badge.label}
+                </p>
+              )}
+              <h3 id={`pricing10-${p.id}`} className="text-2xl font-black text-black">
+                {p.name}
+              </h3>
+              <p className="mt-4 text-black">
+                <span className="text-5xl font-black tracking-tight">{p.price}</span>
+                <span className="mt-1 block text-sm font-bold">{p.per}</span>
+              </p>
+              <p className="mt-2 text-sm font-medium text-black/70">{p.detail}</p>
+              <ul role="list" className="mt-6 flex-1 space-y-2 border-t-2 border-black/20 pt-6 text-sm font-semibold text-black">
+                {p.features.map((f) => (
+                  <li key={f} className="flex gap-2">
+                    <span aria-hidden="true">★</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={`mt-8 rounded-2xl border-2 border-black px-4 py-3 font-black transition hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-white ${p.button}`}
+              >
+                {p.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing10;
+})();
+
+window.Pricing11 = (() => {
+// Pricing11 — enterprise split: self-serve vs contact sales · dark
+
+const selfServe = [
+  "Infrastructure & APM for up to 500 hosts",
+  "15-month metric retention",
+  "Unlimited dashboards and alerts",
+  "PagerDuty, Slack & Opsgenie integrations",
+  "Google & GitHub sign-in",
+  "Community + email support",
+];
+
+const enterprise = [
+  "Unlimited hosts with committed-use discounts",
+  "SAML SSO, SCIM provisioning & audit trail",
+  "Data residency in EU, US or APAC",
+  "Custom retention up to 5 years",
+  "99.99% SLA with financial credits",
+  "Named technical account manager",
+  "Security review & custom DPA",
+];
+
+function Check({ className }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className={className}>
+      <path
+        fillRule="evenodd"
+        d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function Pricing11() {
+  return (
+    <section aria-labelledby="pricing11-heading" className="bg-neutral-950 px-6 py-24 text-neutral-100">
+      <div className="mx-auto max-w-6xl">
+        <header className="max-w-2xl">
+          <h2 id="pricing11-heading" className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            Observability for every scale
+          </h2>
+          <p className="mt-4 text-neutral-400">
+            Get started in minutes with a credit card, or work with our team on a plan built around your
+            architecture.
+          </p>
+        </header>
+
+        <div className="mt-14 grid overflow-hidden rounded-3xl border border-neutral-800 lg:grid-cols-2">
+          <article aria-labelledby="pricing11-team" className="flex flex-col bg-neutral-900 p-8 sm:p-12">
+            <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400">Self-serve</p>
+            <h3 id="pricing11-team" className="mt-3 text-2xl font-semibold text-white">
+              Team
+            </h3>
+            <p className="mt-6 flex items-baseline gap-2">
+              <span className="text-5xl font-semibold tracking-tight text-white">$25</span>
+              <span className="text-neutral-400">per host / month</span>
+            </p>
+            <p className="mt-2 text-sm text-neutral-500">Billed monthly on usage. First 5 hosts free.</p>
+            <ul role="list" className="mt-10 flex-1 space-y-3 text-sm text-neutral-300">
+              {selfServe.map((f) => (
+                <li key={f} className="flex gap-3">
+                  <Check className="h-5 w-5 flex-none text-cyan-400" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <button
+                type="button"
+                className="rounded-lg bg-cyan-400 px-5 py-3 text-sm font-semibold text-neutral-950 hover:bg-cyan-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+              >
+                Start free
+              </button>
+              <a href="#docs" className="rounded-lg px-5 py-3 text-sm font-semibold text-neutral-300 hover:text-white">
+                Read the docs →
+              </a>
+            </div>
+          </article>
+
+          <article
+            aria-labelledby="pricing11-enterprise"
+            className="relative flex flex-col bg-[radial-gradient(ellipse_at_top_right,_rgba(168,85,247,0.25),_transparent_60%)] p-8 sm:p-12 lg:border-l lg:border-neutral-800"
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-purple-400">Contact sales</p>
+            <h3 id="pricing11-enterprise" className="mt-3 text-2xl font-semibold text-white">
+              Enterprise
+            </h3>
+            <p className="mt-6 text-5xl font-semibold tracking-tight text-white">Custom</p>
+            <p className="mt-2 text-sm text-neutral-500">Annual contracts with volume pricing.</p>
+            <ul role="list" className="mt-10 flex-1 space-y-3 text-sm text-neutral-300">
+              {enterprise.map((f) => (
+                <li key={f} className="flex gap-3">
+                  <Check className="h-5 w-5 flex-none text-purple-400" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <figure className="mt-10 border-l-2 border-purple-500/60 pl-4">
+              <blockquote className="text-sm italic text-neutral-300">
+                "We consolidated four monitoring tools and cut our incident response time in half."
+              </blockquote>
+              <figcaption className="mt-2 text-xs text-neutral-500">— VP Engineering, fintech company</figcaption>
+            </figure>
+            <div className="mt-8">
+              <a
+                href="mailto:sales@example.com"
+                className="inline-block rounded-lg border border-purple-400/60 px-5 py-3 text-sm font-semibold text-white hover:bg-purple-500/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+              >
+                Talk to sales
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing11;
+})();
+
+window.Pricing12 = (() => {
+// Pricing12 — free-trial emphasis · light-warm
+
+const steps = [
+  { day: "Today", text: "Get full access to every feature. No card required." },
+  { day: "Day 25", text: "We'll email you a reminder before your trial ends." },
+  { day: "Day 30", text: "Pick a plan — or do nothing and drop to Free." },
+];
+
+const plans = [
+  {
+    id: "solo",
+    name: "Solo",
+    price: 12,
+    who: "For independent practitioners",
+    features: ["1 calendar", "Unlimited bookings", "Stripe & PayPal payments", "SMS reminders (100 / mo)"],
+  },
+  {
+    id: "practice",
+    name: "Practice",
+    price: 29,
+    who: "For clinics and studios up to 10 staff",
+    features: [
+      "Up to 10 calendars",
+      "Group classes & packages",
+      "Intake forms & waivers",
+      "SMS reminders (1,000 / mo)",
+      "Remove our branding",
+    ],
+    featured: true,
+  },
+  {
+    id: "multisite",
+    name: "Multi-site",
+    price: 79,
+    who: "For businesses with several locations",
+    features: ["Unlimited calendars", "Location-level reporting", "Staff payroll export", "Priority phone support"],
+  },
+];
+
+function Pricing12() {
+  return (
+    <section aria-labelledby="pricing12-heading" className="bg-orange-50 px-6 py-24 text-stone-800">
+      <div className="mx-auto max-w-6xl">
+        <div className="overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-orange-500 to-rose-500 p-10 text-white sm:p-14">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <header>
+              <p className="inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-semibold">No credit card needed</p>
+              <h2 id="pricing12-heading" className="mt-5 text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
+                Try everything free for 30 days.
+              </h2>
+              <p className="mt-5 max-w-md text-lg text-orange-50">
+                Online booking that fills your calendar while you work. Most businesses get their first booking on
+                day one.
+              </p>
+              <button
+                type="button"
+                className="mt-8 rounded-full bg-white px-8 py-4 text-lg font-bold text-rose-600 shadow-lg shadow-rose-900/20 hover:bg-orange-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/60"
+              >
+                Start your free trial
+              </button>
+            </header>
+            <ol role="list" className="space-y-4">
+              {steps.map((s, i) => (
+                <li key={s.day} className="flex gap-4 rounded-2xl bg-white/15 p-5 backdrop-blur">
+                  <span className="grid h-10 w-10 flex-none place-items-center rounded-full bg-white font-bold text-rose-600">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="font-bold">{s.day}</p>
+                    <p className="text-sm text-orange-50">{s.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+
+        <h3 className="mt-20 text-center text-2xl font-bold text-stone-900">After your trial, choose the plan that fits</h3>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {plans.map((p) => (
+            <article
+              key={p.id}
+              aria-labelledby={`pricing12-${p.id}`}
+              className={`flex flex-col rounded-3xl bg-white p-8 ${p.featured ? "ring-2 ring-rose-500" : "ring-1 ring-orange-100"}`}
+            >
+              <h4 id={`pricing12-${p.id}`} className="text-lg font-bold text-stone-900">
+                {p.name}
+              </h4>
+              <p className="text-sm text-stone-500">{p.who}</p>
+              <p className="mt-5">
+                <span className="text-4xl font-extrabold text-stone-900">${p.price}</span>
+                <span className="text-stone-500"> /month after trial</span>
+              </p>
+              <ul role="list" className="mt-6 flex-1 space-y-2 text-sm">
+                {p.features.map((f) => (
+                  <li key={f} className="flex gap-2">
+                    <span aria-hidden="true" className="text-rose-500">✔</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={`mt-8 rounded-full px-5 py-3 text-sm font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:ring-offset-2 ${
+                  p.featured ? "bg-rose-500 text-white hover:bg-rose-600" : "bg-orange-100 text-rose-700 hover:bg-orange-200"
+                }`}
+              >
+                Try {p.name} free
+              </button>
+            </article>
+          ))}
+        </div>
+        <p className="mt-8 text-center text-sm text-stone-500">
+          Every plan includes a free 30-day trial of all Multi-site features.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+return Pricing12;
+})();
+
+window.Pricing13 = (() => {
+// Pricing13 — per-seat pricing with seat stepper · professional (light)
+
+
+
+const MIN = 1;
+const MAX = 500;
+
+const plans = [
+  {
+    id: "team",
+    name: "Team",
+    perSeat: 10,
+    desc: "Plan, track and ship projects together.",
+    features: ["Unlimited projects & tasks", "Boards, lists & timelines", "Guests (free, unlimited)", "100+ integrations"],
+    cta: "Buy Team",
+  },
+  {
+    id: "business",
+    name: "Business",
+    perSeat: 18,
+    desc: "Portfolio visibility across departments.",
+    features: [
+      "Everything in Team",
+      "Portfolios & workload view",
+      "Custom fields & forms",
+      "Time tracking",
+      "Admin console & SAML SSO",
+    ],
+    cta: "Buy Business",
+    featured: true,
+  },
+];
+
+const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+function Pricing13() {
+  const [draft, setDraft] = useState("12"); // raw input text, so the field can be cleared while typing
+  const clamp = (n) => Math.min(MAX, Math.max(MIN, Number.isFinite(n) ? Math.round(n) : MIN));
+  const seats = clamp(parseInt(draft, 10));
+  const setSeats = (fn) => setDraft(String(fn(seats)));
+  const discount = seats >= 50 ? 0.1 : 0;
+
+  return (
+    <section aria-labelledby="pricing13-heading" className="bg-gray-50 px-6 py-24 text-gray-900">
+      <div className="mx-auto max-w-5xl">
+        <header className="text-center">
+          <h2 id="pricing13-heading" className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Pay per seat. Only for people who edit.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-gray-600">
+            Viewers and guests are always free. Teams of 50+ get 10% off automatically.
+          </p>
+        </header>
+
+        <div className="mx-auto mt-10 flex max-w-md flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white p-6">
+          <label htmlFor="p13-seats" className="text-sm font-medium text-gray-700">
+            How many people on your team?
+          </label>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Remove a seat"
+              onClick={() => setSeats((s) => clamp(s - 1))}
+              disabled={seats <= MIN}
+              className="grid h-11 w-11 place-items-center rounded-lg border border-gray-300 text-xl text-gray-700 hover:bg-gray-50 disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            >
+              −
+            </button>
+            <input
+              id="p13-seats"
+              type="number"
+              inputMode="numeric"
+              min={MIN}
+              max={MAX}
+              value={draft}
+              onChange={(e) => setDraft(e.target.value.replace(/[^0-9]/g, "").slice(0, 3))}
+              onBlur={() => setDraft(String(seats))}
+              className="h-11 w-24 rounded-lg border border-gray-300 text-center text-lg font-semibold tabular-nums focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/30"
+            />
+            <button
+              type="button"
+              aria-label="Add a seat"
+              onClick={() => setSeats((s) => clamp(s + 1))}
+              disabled={seats >= MAX}
+              className="grid h-11 w-11 place-items-center rounded-lg border border-gray-300 text-xl text-gray-700 hover:bg-gray-50 disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            >
+              +
+            </button>
+          </div>
+          <p className="h-5 text-xs font-medium text-green-700" aria-live="polite">
+            {discount ? "Volume discount applied: 10% off" : ""}
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          {plans.map((p) => {
+            const total = seats * p.perSeat * (1 - discount);
+            return (
+              <article
+                key={p.id}
+                aria-labelledby={`pricing13-${p.id}`}
+                className={`flex flex-col rounded-2xl bg-white p-8 ${p.featured ? "border-2 border-blue-600 shadow-lg" : "border border-gray-200"}`}
+              >
+                <div className="flex items-center justify-between">
+                  <h3 id={`pricing13-${p.id}`} className="text-xl font-semibold">
+                    {p.name}
+                  </h3>
+                  {p.featured && (
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">Most chosen</span>
+                  )}
+                </div>
+                <p className="mt-1 text-sm text-gray-600">{p.desc}</p>
+                <p className="mt-6">
+                  <span className="text-4xl font-bold tracking-tight">${p.perSeat}</span>
+                  <span className="text-gray-500"> per seat / month</span>
+                </p>
+                <p className="mt-2 rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-700" aria-live="polite">
+                  {seats} {seats === 1 ? "seat" : "seats"} ={" "}
+                  <strong className="tabular-nums text-gray-900">{usd(total)}</strong> / month
+                </p>
+                <ul role="list" className="mt-6 flex-1 space-y-2.5 text-sm text-gray-700">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex gap-2.5">
+                      <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 flex-none text-blue-600">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.6l7.3-7.3a1 1 0 0 1 1.4 0Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  className={`mt-8 rounded-lg px-4 py-3 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 ${
+                    p.featured ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-900 text-white hover:bg-gray-800"
+                  }`}
+                >
+                  {p.cta} for {seats} {seats === 1 ? "seat" : "seats"}
+                </button>
+              </article>
+            );
+          })}
+        </div>
+
+        <p className="mt-8 text-center text-sm text-gray-600">
+          More than 500 seats?{" "}
+          <a href="mailto:sales@example.com" className="font-semibold text-blue-700 hover:underline">
+            Contact sales for Enterprise
+          </a>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+return Pricing13;
+})();
+
+window.Pricing14 = (() => {
+// Pricing14 — billing period + currency toggles (segmented radio group), 4 tiers · light / pastel colourful
+
+
+
+const CURRENCIES = ["USD", "EUR", "GBP"];
+
+const tiers = [
+  {
+    id: "free",
+    name: "Free",
+    monthly: { USD: 0, EUR: 0, GBP: 0 },
+    tint: "bg-white",
+    accent: "text-slate-500",
+    features: ["Edit up to 50 photos / month", "Basic presets", "Export up to 2K"],
+    cta: "Get started",
+  },
+  {
+    id: "plus",
+    name: "Plus",
+    monthly: { USD: 6, EUR: 6, GBP: 5 },
+    tint: "bg-sky-50",
+    accent: "text-sky-600",
+    features: ["Unlimited edits", "200+ presets", "AI sky & object removal", "Export up to 4K"],
+    cta: "Get Plus",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    monthly: { USD: 15, EUR: 14, GBP: 12 },
+    tint: "bg-violet-50",
+    accent: "text-violet-600",
+    features: ["Everything in Plus", "RAW processing", "Batch editing", "100 GB cloud library", "Export up to 8K"],
+    cta: "Get Pro",
+    featured: true,
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    monthly: { USD: 32, EUR: 30, GBP: 26 },
+    tint: "bg-rose-50",
+    accent: "text-rose-600",
+    features: ["Everything in Pro", "Client proofing galleries", "1 TB cloud library", "3 team members"],
+    cta: "Get Studio",
+  },
+];
+
+function Pricing14() {
+  const [period, setPeriod] = useState("annual");
+  const [currency, setCurrency] = useState("USD");
+
+  const fmt = (n) =>
+    new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: n % 1 ? 2 : 0 }).format(n);
+  // Annual = 10 months for the price of 12, shown as a monthly equivalent.
+  const priceFor = (t) => {
+    const m = t.monthly[currency];
+    return period === "annual" ? Math.round(((m * 10) / 12) * 100) / 100 : m;
+  };
+
+  return (
+    <section aria-labelledby="pricing14-heading" className="bg-gradient-to-b from-indigo-50 via-white to-pink-50 px-6 py-24 text-slate-900">
+      <div className="mx-auto max-w-7xl">
+        <header className="text-center">
+          <h2 id="pricing14-heading" className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Edit like a pro, from{" "}
+            <span className="bg-gradient-to-r from-sky-500 via-violet-500 to-rose-500 bg-clip-text text-transparent">
+              any device
+            </span>
+          </h2>
+          <p className="mt-4 text-slate-600">Pay yearly and get 2 months free.</p>
+        </header>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <fieldset className="rounded-full bg-white p-1 shadow-sm ring-1 ring-slate-200">
+            <legend className="sr-only">Billing period</legend>
+            <div className="flex">
+              {[
+                ["monthly", "Monthly"],
+                ["annual", "Yearly · 2 months free"],
+              ].map(([value, label]) => (
+                <label
+                  key={value}
+                  className={`cursor-pointer rounded-full px-5 py-2 text-sm font-semibold transition has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-violet-500 ${
+                    period === value ? "bg-violet-600 text-white" : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="p14-period"
+                    value={value}
+                    checked={period === value}
+                    onChange={() => setPeriod(value)}
+                    className="sr-only"
+                  />
+                  {label}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset className="rounded-full bg-white p-1 shadow-sm ring-1 ring-slate-200">
+            <legend className="sr-only">Currency</legend>
+            <div className="flex">
+              {CURRENCIES.map((c) => (
+                <label
+                  key={c}
+                  className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-violet-500 ${
+                    currency === c ? "bg-slate-900 text-white" : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="p14-currency"
+                    value={c}
+                    checked={currency === c}
+                    onChange={() => setCurrency(c)}
+                    className="sr-only"
+                  />
+                  {c}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        </div>
+
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {tiers.map((t) => {
+            const price = priceFor(t);
+            return (
+              <article
+                key={t.id}
+                aria-labelledby={`pricing14-${t.id}`}
+                className={`flex flex-col rounded-3xl p-7 ${t.tint} ${
+                  t.featured ? "shadow-xl shadow-violet-200 ring-2 ring-violet-500" : "ring-1 ring-slate-200"
+                }`}
+              >
+                <h3 id={`pricing14-${t.id}`} className={`text-sm font-bold uppercase tracking-wider ${t.accent}`}>
+                  {t.name}
+                </h3>
+                <p className="mt-4 flex items-baseline gap-1">
+                  <span className="text-4xl font-bold tracking-tight tabular-nums">{fmt(price)}</span>
+                  <span className="text-sm text-slate-500">/mo</span>
+                </p>
+                <p className="mt-1 h-4 text-xs text-slate-500">
+                  {price === 0 ? "Free forever" : period === "annual" ? `${fmt(t.monthly[currency] * 10)} billed yearly` : "Billed monthly"}
+                </p>
+                <ul role="list" className="mt-6 flex-1 space-y-2 text-sm text-slate-700">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex gap-2">
+                      <span aria-hidden="true" className={t.accent}>●</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  className={`mt-8 rounded-xl px-4 py-2.5 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2 ${
+                    t.featured ? "bg-violet-600 text-white hover:bg-violet-700" : "bg-white text-slate-900 ring-1 ring-slate-300 hover:ring-slate-400"
+                  }`}
+                >
+                  {t.cta}
+                </button>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing14;
+})();
+
+window.Pricing15 = (() => {
+// Pricing15 — dark comparison table with billing toggle and highlighted column
+
+
+
+const plans = [
+  { id: "free", name: "Free", monthly: 0, annual: 0, cta: "Start building" },
+  { id: "team", name: "Team", monthly: 30, annual: 25, unit: "per user", cta: "Start Team trial", featured: true },
+  { id: "enterprise", name: "Enterprise", custom: true, cta: "Contact sales" },
+];
+
+const rows = [
+  { section: "Pipelines" },
+  { label: "Build minutes / month", values: ["2,000", "50,000", "Unlimited"] },
+  { label: "Concurrent jobs", values: ["1", "20", "Custom"] },
+  { label: "Linux, macOS & Windows runners", values: [true, true, true] },
+  { label: "GPU runners", values: [false, true, true] },
+  { label: "Self-hosted runners", values: [false, true, true] },
+  { section: "Delivery" },
+  { label: "Preview environments", values: [false, true, true] },
+  { label: "Deployment approvals", values: [false, true, true] },
+  { label: "Progressive & canary rollouts", values: [false, false, true] },
+  { section: "Security & support" },
+  { label: "Secrets manager", values: [true, true, true] },
+  { label: "SAML SSO & SCIM", values: [false, false, true] },
+  { label: "Audit log retention", values: ["—", "90 days", "7 years"] },
+  { label: "Support", values: ["Community", "Email, 1 business day", "24/7, 1-hour response"] },
+];
+
+function Value({ v }) {
+  if (v === true)
+    return (
+      <>
+        <span aria-hidden="true" className="text-lime-400">✓</span>
+        <span className="sr-only">Included</span>
+      </>
+    );
+  if (v === false)
+    return (
+      <>
+        <span aria-hidden="true" className="text-zinc-600">×</span>
+        <span className="sr-only">Not included</span>
+      </>
+    );
+  return <span className="text-zinc-300">{v}</span>;
+}
+
+function Pricing15() {
+  const [billing, setBilling] = useState("annual");
+
+  return (
+    <section aria-labelledby="pricing15-heading" className="bg-zinc-950 px-6 py-24 text-zinc-100">
+      <div className="mx-auto max-w-6xl">
+        <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 id="pricing15-heading" className="text-4xl font-semibold tracking-tight text-white">
+              Ship faster on every plan
+            </h2>
+            <p className="mt-3 max-w-lg text-zinc-400">Compare everything side by side. Team is free for 14 days.</p>
+          </div>
+          <div role="radiogroup" aria-label="Billing period" className="inline-flex self-start rounded-lg border border-zinc-800 bg-zinc-900 p-1 text-sm">
+            {[
+              ["monthly", "Monthly"],
+              ["annual", "Annual −17%"],
+            ].map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                role="radio"
+                aria-checked={billing === value}
+                onClick={() => setBilling(value)}
+                className={`rounded-md px-4 py-1.5 font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-lime-400 ${
+                  billing === value ? "bg-lime-400 text-zinc-950" : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </header>
+
+        <div className="relative mt-12 overflow-x-auto">
+          <table className="w-full min-w-[720px] border-separate border-spacing-0 text-left text-sm">
+            <caption className="sr-only">Plan comparison for Free, Team and Enterprise</caption>
+            <thead>
+              <tr>
+                <td className="w-[34%]" />
+                {plans.map((p) => (
+                  <th
+                    key={p.id}
+                    scope="col"
+                    className={`p-6 align-top font-normal ${p.featured ? "rounded-t-2xl bg-zinc-900 ring-1 ring-lime-400/40" : ""}`}
+                  >
+                    <span className="block text-base font-semibold text-white">{p.name}</span>
+                    <span className="mt-3 block text-3xl font-semibold tracking-tight text-white">
+                      {p.custom ? "Custom" : `$${billing === "annual" ? p.annual : p.monthly}`}
+                    </span>
+                    <span className="block h-5 text-xs text-zinc-500">
+                      {p.custom ? "Annual contract" : p.unit ? `${p.unit} / month` : "Forever"}
+                    </span>
+                    {p.custom ? (
+                      <a
+                        href="mailto:sales@example.com"
+                        className="mt-4 block rounded-lg border border-zinc-700 px-3 py-2 text-center font-medium text-white hover:bg-zinc-800"
+                      >
+                        {p.cta}
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        className={`mt-4 w-full rounded-lg px-3 py-2 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-lime-400 ${
+                          p.featured ? "bg-lime-400 text-zinc-950 hover:bg-lime-300" : "border border-zinc-700 text-white hover:bg-zinc-800"
+                        }`}
+                      >
+                        {p.cta}
+                      </button>
+                    )}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) =>
+                r.section ? (
+                  <tr key={r.section}>
+                    <th scope="colgroup" colSpan={4} className="px-4 pb-3 pt-10 text-xs font-semibold uppercase tracking-widest text-lime-400">
+                      {r.section}
+                    </th>
+                  </tr>
+                ) : (
+                  <tr key={r.label}>
+                    <th scope="row" className="border-t border-zinc-800/80 px-4 py-3.5 font-normal text-zinc-400">
+                      {r.label}
+                    </th>
+                    {r.values.map((v, j) => (
+                      <td
+                        key={plans[j].id}
+                        className={`border-t border-zinc-800/80 px-6 py-3.5 ${
+                          plans[j].featured ? `bg-zinc-900 ${i === rows.length - 1 ? "rounded-b-2xl" : ""}` : ""
+                        }`}
+                      >
+                        <Value v={v} />
+                      </td>
+                    ))}
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing15;
+})();
+
+window.Pricing16 = (() => {
+// Pricing16 — magazine-style three columns with rules and numerals · editorial (print subscription)
+
+const tiers = [
+  {
+    id: "digital",
+    numeral: "I.",
+    name: "Digital",
+    price: "$48",
+    term: "per year",
+    lede: "The whole magazine on every screen, the morning it goes to press.",
+    features: [
+      "Four quarterly issues on web & app",
+      "Complete archive back to issue one",
+      "Audio editions of the long reads",
+      "Weekly dispatch newsletter",
+    ],
+    cta: "Subscribe digitally",
+  },
+  {
+    id: "print",
+    numeral: "II.",
+    name: "Print & Digital",
+    price: "$96",
+    term: "per year, shipping included",
+    lede: "Heavy matte paper, 220 pages, delivered to your door each season.",
+    features: [
+      "Everything in Digital",
+      "Four printed issues a year",
+      "Free worldwide shipping",
+      "Subscriber-only cover edition",
+      "10% off back issues & prints",
+    ],
+    cta: "Subscribe in print",
+    featured: true,
+  },
+  {
+    id: "patron",
+    numeral: "III.",
+    name: "Patron",
+    price: "$250",
+    term: "per year",
+    lede: "Keep independent publishing independent — and get thanked in print.",
+    features: [
+      "Everything in Print & Digital",
+      "A second subscription to gift",
+      "Your name in the masthead",
+      "Invitations to launch evenings",
+    ],
+    cta: "Become a patron",
+  },
+];
+
+function Pricing16() {
+  return (
+    <section aria-labelledby="pricing16-heading" className="bg-white px-6 py-24 text-black">
+      <div className="mx-auto max-w-6xl">
+        <header className="border-b-4 border-double border-black pb-8 text-center">
+          <p className="font-serif text-xs uppercase tracking-[0.4em]">Subscriptions · Vol. XII</p>
+          <h2 id="pricing16-heading" className="mt-4 font-serif text-5xl italic tracking-tight sm:text-7xl">
+            Read slowly.
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg font-serif text-lg text-neutral-600">
+            A quarterly of ideas, design and culture — made by a staff of eleven and funded entirely by readers.
+          </p>
+        </header>
+
+        <div className="grid md:grid-cols-3 md:divide-x md:divide-black">
+          {tiers.map((t) => (
+            <article
+              key={t.id}
+              aria-labelledby={`pricing16-${t.id}`}
+              className={`flex flex-col border-b border-black px-0 py-10 md:border-b-0 md:px-8 ${t.featured ? "md:bg-red-50/60" : ""}`}
+            >
+              <p aria-hidden="true" className="font-serif text-6xl text-red-700">
+                {t.numeral}
+              </p>
+              <h3 id={`pricing16-${t.id}`} className="mt-4 font-serif text-3xl">
+                {t.name}
+              </h3>
+              {t.featured && (
+                <p className="mt-1 font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-red-700">Editors' pick</p>
+              )}
+              <p className="mt-4 font-serif text-lg italic leading-snug text-neutral-700">{t.lede}</p>
+              <p className="mt-8 border-y border-black py-4 font-serif">
+                <span className="text-4xl">{t.price}</span>
+                <span className="ml-2 text-sm text-neutral-600">{t.term}</span>
+              </p>
+              <ul role="list" className="mt-6 flex-1 space-y-2 font-serif text-[15px] leading-6">
+                {t.features.map((f) => (
+                  <li key={f} className="pl-5 -indent-5">
+                    <span aria-hidden="true" className="mr-2 text-red-700">
+                      ¶
+                    </span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={`mt-10 px-5 py-3 font-sans text-xs font-bold uppercase tracking-[0.2em] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2 ${
+                  t.featured ? "bg-red-700 text-white hover:bg-red-800" : "border border-black hover:bg-black hover:text-white"
+                }`}
+              >
+                {t.cta}
+              </button>
+            </article>
+          ))}
+        </div>
+
+        <p className="border-t-4 border-double border-black pt-6 text-center font-serif text-sm italic text-neutral-600">
+          Subscriptions renew annually and can be paused or cancelled at any time.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+return Pricing16;
+})();
+
+window.Pricing17 = (() => {
+// Pricing17 — graduated volume pricing table + calculator · light / minimal
+
+
+
+const brackets = [
+  { from: 0, to: 10_000, rate: 0.0079 },
+  { from: 10_000, to: 100_000, rate: 0.0065 },
+  { from: 100_000, to: 1_000_000, rate: 0.0049 },
+  { from: 1_000_000, to: Infinity, rate: 0.0035 },
+];
+
+const features = [
+  "Two-way SMS & MMS in 180 countries",
+  "Free local number with every account",
+  "Delivery receipts & webhooks",
+  "Automatic opt-out handling",
+  "No monthly minimums or contracts",
+];
+
+const num = (n) => n.toLocaleString("en-US");
+const usd = (n, d = 2) => n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: d, maximumFractionDigits: d });
+
+function graduated(messages) {
+  return brackets.map((b) => {
+    const qty = Math.max(0, Math.min(messages, b.to) - b.from);
+    return { ...b, qty, cost: qty * b.rate };
+  });
+}
+
+function Pricing17() {
+  const [messages, setMessages] = useState(250_000);
+  const lines = graduated(messages);
+  const total = lines.reduce((s, l) => s + l.cost, 0);
+
+  return (
+    <section aria-labelledby="pricing17-heading" className="bg-white px-6 py-24 text-gray-900">
+      <div className="mx-auto max-w-5xl">
+        <header className="max-w-2xl">
+          <h2 id="pricing17-heading" className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Pay per message. The more you send, the less each one costs.
+          </h2>
+          <p className="mt-3 text-gray-500">
+            Graduated pricing: each bracket's rate applies only to messages within that bracket.
+          </p>
+        </header>
+
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <table className="w-full text-left text-sm">
+              <caption className="sr-only">Price per outbound SMS by monthly volume</caption>
+              <thead>
+                <tr className="border-b border-gray-200 text-xs uppercase tracking-wider text-gray-500">
+                  <th scope="col" className="py-3 font-medium">Monthly volume</th>
+                  <th scope="col" className="py-3 text-right font-medium">Per message</th>
+                  <th scope="col" className="py-3 text-right font-medium">Your usage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lines.map((l) => (
+                  <tr key={l.from} className={`border-b border-gray-100 transition-colors ${l.qty > 0 ? "text-gray-900" : "text-gray-400"}`}>
+                    <th scope="row" className="py-4 font-normal">
+                      {l.to === Infinity ? `${num(l.from + 1)}+` : `${num(l.from === 0 ? 1 : l.from + 1)} – ${num(l.to)}`}
+                    </th>
+                    <td className="py-4 text-right tabular-nums">${l.rate.toFixed(4)}</td>
+                    <td className="py-4 text-right tabular-nums">
+                      {l.qty > 0 ? (
+                        <span className="inline-flex items-center gap-2">
+                          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          {usd(l.cost)}
+                        </span>
+                      ) : (
+                        "—"
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <form className="mt-10" onSubmit={(e) => e.preventDefault()}>
+              <label htmlFor="p17-volume" className="text-sm font-medium text-gray-700">
+                Messages per month
+              </label>
+              <div className="mt-3 flex items-center gap-4">
+                <input
+                  type="range"
+                  min={0}
+                  max={2_000_000}
+                  step={5_000}
+                  value={messages}
+                  onChange={(e) => setMessages(Number(e.target.value))}
+                  aria-label="Messages per month slider"
+                  aria-valuetext={`${num(messages)} messages`}
+                  className="flex-1 accent-emerald-600"
+                />
+                <input
+                  id="p17-volume"
+                  type="number"
+                  min={0}
+                  step={1000}
+                  value={messages}
+                  onChange={(e) => setMessages(Math.max(0, Math.floor(Number(e.target.value) || 0)))}
+                  className="w-32 rounded-md border border-gray-300 px-3 py-2 text-right tabular-nums focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                />
+              </div>
+            </form>
+          </div>
+
+          <article aria-labelledby="pricing17-total" className="flex flex-col rounded-xl border border-gray-200 p-8">
+            <h3 id="pricing17-total" className="text-sm font-medium text-gray-500">
+              Estimated monthly total
+            </h3>
+            <p className="mt-2 text-5xl font-semibold tracking-tight tabular-nums" aria-live="polite">
+              {usd(total)}
+            </p>
+            <p className="mt-1 text-sm text-gray-500">
+              Average {messages > 0 ? `$${(total / messages).toFixed(4)}` : "—"} per message
+            </p>
+            <ul role="list" className="mt-8 flex-1 space-y-2.5 border-t border-gray-100 pt-8 text-sm text-gray-700">
+              {features.map((f) => (
+                <li key={f} className="flex gap-2.5">
+                  <span aria-hidden="true" className="text-emerald-600">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <button
+              type="button"
+              className="mt-8 rounded-md bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2"
+            >
+              Get $10 free credit
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing17;
+})();
+
+window.Pricing18 = (() => {
+// Pricing18 — brutalist cards · bold (yellow / black, hard shadows)
+
+const plans = [
+  {
+    id: "hobby",
+    name: "Hobby",
+    price: "$0",
+    pitch: "Deploy side projects. Sleep when idle.",
+    features: ["1 app", "512 MB RAM", "Shared Postgres (1 GB)", "*.app subdomain", "Sleeps after 30 min idle"],
+    cta: "Deploy free",
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    price: "$20",
+    pitch: "Always-on apps with real databases.",
+    features: [
+      "10 apps",
+      "Up to 8 GB RAM per app",
+      "Dedicated Postgres (20 GB)",
+      "Custom domains + free TLS",
+      "Daily backups, 14-day retention",
+      "Zero-downtime deploys",
+    ],
+    cta: "Go Pro",
+    featured: true,
+  },
+  {
+    id: "team",
+    name: "Team",
+    price: "$99",
+    pitch: "Shared projects, roles and preview envs.",
+    features: [
+      "Unlimited apps",
+      "Up to 32 GB RAM per app",
+      "Postgres + Redis clusters",
+      "Preview environment per PR",
+      "Role-based access control",
+      "Priority support",
+    ],
+    cta: "Start Team",
+  },
+];
+
+function Pricing18() {
+  return (
+    <section aria-labelledby="pricing18-heading" className="bg-yellow-300 px-6 py-24 text-black">
+      <div className="mx-auto max-w-6xl">
+        <header className="border-4 border-black bg-white p-8 shadow-[10px_10px_0_0_#000]">
+          <h2 id="pricing18-heading" className="text-5xl font-black uppercase leading-none tracking-tighter sm:text-7xl">
+            Push code.
+            <br />
+            Get a URL.
+          </h2>
+          <p className="mt-4 max-w-xl text-lg font-bold">
+            Hosting that doesn't need a platform team. Usage over plan limits is billed per second.
+          </p>
+        </header>
+
+        <div className="mt-14 grid gap-10 lg:grid-cols-3">
+          {plans.map((p) => (
+            <article
+              key={p.id}
+              aria-labelledby={`pricing18-${p.id}`}
+              className={`flex flex-col border-4 border-black p-7 shadow-[10px_10px_0_0_#000] ${p.featured ? "bg-black text-yellow-300" : "bg-white"}`}
+            >
+              <div className="flex items-start justify-between">
+                <h3 id={`pricing18-${p.id}`} className="text-3xl font-black uppercase">
+                  {p.name}
+                </h3>
+                {p.featured && (
+                  <span className="border-2 border-yellow-300 px-2 py-0.5 text-xs font-black uppercase">Popular</span>
+                )}
+              </div>
+              <p className="mt-2 font-bold">{p.pitch}</p>
+              <p className="mt-6 text-7xl font-black tracking-tighter">
+                {p.price}
+                <span className="text-xl tracking-normal">/mo</span>
+              </p>
+              <ul role="list" className={`mt-6 flex-1 border-t-4 pt-6 font-mono text-sm ${p.featured ? "border-yellow-300" : "border-black"}`}>
+                {p.features.map((f) => (
+                  <li key={f} className="py-1">
+                    [x] {f}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className={`mt-8 border-4 px-4 py-3 text-lg font-black uppercase transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 ${
+                  p.featured
+                    ? "border-yellow-300 bg-yellow-300 text-black shadow-[6px_6px_0_0_#fde047] focus-visible:outline-yellow-300"
+                    : "border-black bg-yellow-300 shadow-[6px_6px_0_0_#000] focus-visible:outline-black"
+                }`}
+              >
+                {p.cta} →
+              </button>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing18;
+})();
+
+window.Pricing19 = (() => {
+// Pricing19 — per-seat with team-size slider + annual toggle · dark gradient
+
+
+
+const FREE_SEAT_LIMIT = 3;
+
+const plans = [
+  {
+    id: "starter",
+    name: "Starter",
+    monthly: 0,
+    annual: 0,
+    desc: "Try AI meeting notes with a small team.",
+    features: ["Up to 3 seats", "20 recorded meetings / month", "Summaries & action items", "Zoom, Meet & Teams"],
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    monthly: 14,
+    annual: 11,
+    desc: "Unlimited notes for growing teams.",
+    features: [
+      "Unlimited meetings",
+      "Custom summary templates",
+      "Search across all meetings",
+      "Push notes to Notion, HubSpot & Slack",
+      "40+ languages",
+    ],
+    featured: true,
+  },
+  {
+    id: "business",
+    name: "Business",
+    monthly: 26,
+    annual: 21,
+    desc: "Control, compliance and coaching insights.",
+    features: [
+      "Everything in Pro",
+      "Talk-time & sentiment analytics",
+      "Admin controls & SSO",
+      "Custom data retention",
+      "HIPAA-ready (BAA available)",
+    ],
+  },
+];
+
+function Pricing19() {
+  const [seats, setSeats] = useState(8);
+  const [annual, setAnnual] = useState(true);
+
+  return (
+    <section
+      aria-labelledby="pricing19-heading"
+      className="bg-gradient-to-b from-[#140a2e] via-[#1d0f3f] to-[#0d0720] px-6 py-24 text-violet-50"
+    >
+      <div className="mx-auto max-w-6xl">
+        <header className="text-center">
+          <h2 id="pricing19-heading" className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            Never take meeting notes again
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-violet-200/70">Priced per seat. Pay only for people who record meetings.</p>
+        </header>
+
+        <div className="mx-auto mt-12 grid max-w-3xl items-center gap-8 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur sm:grid-cols-[1fr_auto] sm:p-8">
+          <div>
+            <div className="flex items-baseline justify-between">
+              <label htmlFor="p19-seats" className="text-sm font-medium text-violet-100">
+                Team size
+              </label>
+              <output htmlFor="p19-seats" className="text-lg font-semibold tabular-nums text-white">
+                {seats} {seats === 1 ? "seat" : "seats"}
+              </output>
+            </div>
+            <input
+              id="p19-seats"
+              type="range"
+              min={1}
+              max={200}
+              value={seats}
+              onChange={(e) => setSeats(Number(e.target.value))}
+              aria-valuetext={`${seats} seats`}
+              className="mt-3 w-full accent-fuchsia-400"
+            />
+          </div>
+          <div className="flex items-center gap-3 text-sm">
+            <button
+              type="button"
+              role="switch"
+              aria-checked={annual}
+              onClick={() => setAnnual((a) => !a)}
+              className={`relative inline-flex h-6 w-11 flex-none items-center rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 ${
+                annual ? "bg-fuchsia-500" : "bg-white/20"
+              }`}
+            >
+              <span className="sr-only">Bill annually</span>
+              <span className={`inline-block h-4 w-4 rounded-full bg-white transition-transform ${annual ? "translate-x-6" : "translate-x-1"}`} />
+            </button>
+            <span aria-hidden="true">
+              Annual <span className="text-fuchsia-300">(save ~20%)</span>
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {plans.map((p) => {
+            const perSeat = annual ? p.annual : p.monthly;
+            const unavailable = p.monthly === 0 && seats > FREE_SEAT_LIMIT;
+            const total = perSeat * seats;
+            return (
+              <article
+                key={p.id}
+                aria-labelledby={`pricing19-${p.id}`}
+                className={`flex flex-col rounded-2xl p-8 ${
+                  p.featured
+                    ? "bg-gradient-to-b from-fuchsia-500/20 to-violet-500/5 ring-1 ring-fuchsia-400/60"
+                    : "bg-white/[0.03] ring-1 ring-white/10"
+                } ${unavailable ? "opacity-60" : ""}`}
+              >
+                <h3 id={`pricing19-${p.id}`} className="text-lg font-semibold text-white">
+                  {p.name}
+                </h3>
+                <p className="mt-1 text-sm text-violet-200/70">{p.desc}</p>
+                <p className="mt-6 flex items-baseline gap-1">
+                  <span className="text-4xl font-semibold text-white">${perSeat}</span>
+                  <span className="text-sm text-violet-200/60">/ seat / mo</span>
+                </p>
+                <p className="mt-3 rounded-lg bg-black/20 px-3 py-2 text-sm" aria-live="polite">
+                  {unavailable ? (
+                    <span className="text-violet-200/70">Limited to {FREE_SEAT_LIMIT} seats</span>
+                  ) : (
+                    <>
+                      <span className="font-semibold tabular-nums text-white">${total.toLocaleString("en-US")}</span>
+                      <span className="text-violet-200/70">
+                        {" "}
+                        / month for {seats} {seats === 1 ? "seat" : "seats"}
+                        {annual && total > 0 ? ` · $${(total * 12).toLocaleString("en-US")} / yr` : ""}
+                      </span>
+                    </>
+                  )}
+                </p>
+                <ul role="list" className="mt-6 flex-1 space-y-2.5 text-sm text-violet-100/90">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex gap-2.5">
+                      <span aria-hidden="true" className="text-fuchsia-300">◆</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  disabled={unavailable}
+                  className={`mt-8 rounded-xl px-4 py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400 disabled:cursor-not-allowed ${
+                    p.featured
+                      ? "bg-gradient-to-r from-fuchsia-500 to-violet-500 text-white hover:brightness-110"
+                      : "bg-white/10 text-white hover:bg-white/15"
+                  }`}
+                >
+                  {unavailable ? "Upgrade for more seats" : p.monthly === 0 ? "Start free" : `Get ${p.name}`}
+                </button>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+return Pricing19;
+})();
+
+window.Pricing20 = (() => {
+// Pricing20 — horizontal row cards (stacked) + guarantee strip · light-warm / soft
+
+const plans = [
+  {
+    id: "essentials",
+    name: "Essentials",
+    storage: "200 GB",
+    price: "$2.99",
+    features: ["Automatic photo backup", "Share links with passwords", "30-day file recovery"],
+    cta: "Choose Essentials",
+  },
+  {
+    id: "plus",
+    name: "Plus",
+    storage: "2 TB",
+    price: "$9.99",
+    features: ["Everything in Essentials", "Share with up to 5 family members", "End-to-end encrypted vault", "180-day file recovery"],
+    cta: "Choose Plus",
+    featured: true,
+  },
+  {
+    id: "max",
+    name: "Max",
+    storage: "10 TB",
+    price: "$29.99",
+    features: ["Everything in Plus", "Desktop & NAS backup", "Version history for 1 year", "Priority human support"],
+    cta: "Choose Max",
+  },
+];
+
+function Pricing20() {
+  return (
+    <section aria-labelledby="pricing20-heading" className="bg-[#f7f3ee] px-6 py-24 text-[#2b2420]">
+      <div className="mx-auto max-w-5xl">
+        <header className="text-center">
+          <h2 id="pricing20-heading" className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            A safe home for your memories
+          </h2>
+          <p className="mt-4 text-[#6f625a]">Everyone starts with 5 GB free. Upgrade when you need more room.</p>
+        </header>
+
+        <ul role="list" className="mt-14 space-y-4">
+          {plans.map((p) => (
+            <li key={p.id}>
+              <article
+                aria-labelledby={`pricing20-${p.id}`}
+                className={`relative grid items-center gap-6 rounded-3xl p-6 sm:p-8 md:grid-cols-[180px_1fr_auto] md:gap-10 ${
+                  p.featured ? "bg-[#2b2420] text-[#f7f3ee] shadow-xl" : "bg-white shadow-sm ring-1 ring-[#e8dfd5]"
+                }`}
+              >
+                {p.featured && (
+                  <p className="absolute -top-3 left-8 rounded-full bg-[#e07a5f] px-3 py-1 text-xs font-semibold text-white">
+                    Most families choose this
+                  </p>
+                )}
+                <div>
+                  <h3 id={`pricing20-${p.id}`} className={`text-sm font-medium ${p.featured ? "text-[#e8b4a2]" : "text-[#e07a5f]"}`}>
+                    {p.name}
+                  </h3>
+                  <p className="text-4xl font-semibold tracking-tight">{p.storage}</p>
+                </div>
+                <ul role="list" className={`grid gap-x-6 gap-y-1.5 text-sm sm:grid-cols-2 ${p.featured ? "text-[#d9cfc6]" : "text-[#6f625a]"}`}>
+                  {p.features.map((f) => (
+                    <li key={f} className="flex gap-2">
+                      <span aria-hidden="true" className="text-[#e07a5f]">✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex items-center justify-between gap-6 md:flex-col md:items-end md:gap-3">
+                  <p className="whitespace-nowrap">
+                    <span className="text-3xl font-semibold">{p.price}</span>
+                    <span className={`text-sm ${p.featured ? "text-[#d9cfc6]" : "text-[#6f625a]"}`}> /mo</span>
+                  </p>
+                  <button
+                    type="button"
+                    className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e07a5f] focus-visible:ring-offset-2 ${
+                      p.featured
+                        ? "bg-[#e07a5f] text-white hover:bg-[#d06a4f] focus-visible:ring-offset-[#2b2420]"
+                        : "bg-[#f7f3ee] text-[#2b2420] ring-1 ring-[#e0d4c7] hover:bg-[#efe7de]"
+                    }`}
+                  >
+                    {p.cta}
+                  </button>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+
+        <aside
+          aria-label="Our guarantees"
+          className="mt-12 grid gap-6 rounded-3xl border border-dashed border-[#d8c9b9] p-8 text-sm sm:grid-cols-3"
+        >
+          {[
+            ["30-day money-back", "Not for you? Get a full refund, no forms to fill."],
+            ["Your files, always", "If you cancel, download everything for 12 months."],
+            ["Private by design", "Zero-knowledge encryption. We can't see your files."],
+          ].map(([title, text]) => (
+            <div key={title}>
+              <p className="font-semibold">{title}</p>
+              <p className="mt-1 text-[#6f625a]">{text}</p>
+            </div>
+          ))}
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+return Pricing20;
+})();
+function App() {
+  return <main>{Array.from({ length: 20 }, (_, i) => {
+    const C = window["Pricing" + (i + 1)];
+    return <div key={i} id={"p" + (i + 1)} className="relative scroll-mt-10">
+      <span className="absolute left-3 top-3 z-10 rounded bg-black/70 px-2 py-0.5 font-mono text-[11px] text-white">Pricing{i + 1}</span>
+      <C />
+    </div>;
+  })}</main>;
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body></html>

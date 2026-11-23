@@ -1,0 +1,73 @@
+import type { ComponentType } from 'react';
+import {
+  Way1,
+  Way2,
+  Way3,
+  Way4,
+  Way5,
+  Way6,
+  Way7,
+  Way8,
+} from './Steppers';
+import {
+  Way9,
+  Way10,
+  Way11,
+  Way12,
+  Way13,
+} from './Breadcrumbs';
+import {
+  Way14,
+  Way15,
+  Way16,
+  Way17,
+  Way18,
+  Way19,
+  Way20,
+} from './HeadersAndNav';
+
+export {
+  Way1,
+  Way2,
+  Way3,
+  Way4,
+  Way5,
+  Way6,
+  Way7,
+  Way8,
+  Way9,
+  Way10,
+  Way11,
+  Way12,
+  Way13,
+  Way14,
+  Way15,
+  Way16,
+  Way17,
+  Way18,
+  Way19,
+  Way20,
+};
+
+export const WAY_COMPONENTS: Record<string, ComponentType> = {
+  Way1,
+  Way2,
+  Way3,
+  Way4,
+  Way5,
+  Way6,
+  Way7,
+  Way8,
+  Way9,
+  Way10,
+  Way11,
+  Way12,
+  Way13,
+  Way14,
+  Way15,
+  Way16,
+  Way17,
+  Way18,
+  Way19,
+  Way20,
+};

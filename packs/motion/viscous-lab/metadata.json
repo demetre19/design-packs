@@ -1,0 +1,6 @@
+{
+  "name": "Viscous Lab",
+  "description": "Interactive showcase of 20 self-contained gooey and liquid UI micro-interactions built with React, Tailwind CSS, and SVG filters.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

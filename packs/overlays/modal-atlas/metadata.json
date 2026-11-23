@@ -1,0 +1,6 @@
+{
+  "name": "Modal Atlas",
+  "description": "A curated collection of 20 self-contained React and Tailwind modal dialog components spanning confirmation dialogs, forms, lightboxes, slide-overs, command palettes, and alerts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

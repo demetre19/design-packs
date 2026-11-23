@@ -1,0 +1,6 @@
+{
+  "name": "Patternfolio — Auth & State UI Kit",
+  "description": "A curated architectural catalog of 10 distinct authentication screens and 10 error/empty state patterns built with self-contained React and Tailwind CSS components.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

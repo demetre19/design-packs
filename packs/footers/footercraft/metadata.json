@@ -1,0 +1,6 @@
+{
+  "name": "Footercraft",
+  "description": "40 distinct, self-contained React and Tailwind website footer sections spanning diverse topologies and visual styles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

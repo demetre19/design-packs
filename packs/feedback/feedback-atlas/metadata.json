@@ -1,0 +1,6 @@
+{
+  "name": "Feedback Atlas — 20 React & Tailwind Feedback Components",
+  "description": "A catalog of 20 self-contained, accessible React and Tailwind CSS feedback components covering toasts, banners, validation, snackbars, consent bars, indicators, skeletons, and inline states.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

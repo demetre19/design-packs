@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #F7F7F5;
+    color: #111110;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Native CSS Scroll-Driven Animation Keyframes */
+@keyframes css-stagger-rise {
+  from {
+    opacity: 0.25;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes css-parallax-back {
+  from {
+    transform: translateY(-28px) scale(1.06);
+  }
+  to {
+    transform: translateY(28px) scale(1.06);
+  }
+}
+
+@keyframes css-parallax-mid {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: translateY(-24px);
+  }
+}
+
+@keyframes css-parallax-front {
+  from {
+    transform: translateY(44px);
+  }
+  to {
+    transform: translateY(-44px);
+  }
+}
+
+@keyframes css-scale-down-frame {
+  from {
+    transform: scale(1.14);
+    border-radius: 0px;
+  }
+  to {
+    transform: scale(0.92);
+    border-radius: 16px;
+  }
+}
+
+@keyframes css-paragraph-fade {
+  0% {
+    opacity: 0.22;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes css-text-sweep {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes css-tilt-flatten {
+  from {
+    opacity: 0.45;
+    transform: perspective(1000px) rotateX(18deg) translateY(24px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+  }
+}
+
+@keyframes css-counter-up {
+  from {
+    transform: translateY(32px);
+  }
+  to {
+    transform: translateY(-32px);
+  }
+}
+
+@keyframes css-counter-down {
+  from {
+    transform: translateY(-32px);
+  }
+  to {
+    transform: translateY(32px);
+  }
+}
+
+@keyframes css-clip-expand {
+  from {
+    clip-path: inset(14% 18% 14% 18% round 18px);
+    transform: scale(1.05);
+  }
+  to {
+    clip-path: inset(0% 0% 0% 0% round 12px);
+    transform: scale(1);
+  }
+}
+
+@keyframes css-section-meter {
+  from {
+    transform: scaleX(0.05);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .sd-stagger-0 {
+    animation: css-stagger-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 36%;
+  }
+  .sd-stagger-1 {
+    animation: css-stagger-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 42%;
+  }
+  .sd-stagger-2 {
+    animation: css-stagger-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 16% cover 48%;
+  }
+  .sd-stagger-3 {
+    animation: css-stagger-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 24% cover 54%;
+  }
+  .sd-parallax-back {
+    animation: css-parallax-back linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  .sd-parallax-mid {
+    animation: css-parallax-mid linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  .sd-parallax-front {
+    animation: css-parallax-front linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  .sd-scale-down {
+    animation: css-scale-down-frame linear both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 65%;
+  }
+  .sd-paragraph-fade {
+    animation: css-paragraph-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 38%;
+  }
+  .sd-text-fill {
+    animation: css-text-sweep linear both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 62%;
+  }
+  .sd-tilt-flatten {
+    animation: css-tilt-flatten linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 48%;
+  }
+  .sd-counter-up {
+    animation: css-counter-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  .sd-counter-down {
+    animation: css-counter-down linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  .sd-clip-expand {
+    animation: css-clip-expand linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 55%;
+  }
+  .sd-meter-bar {
+    animation: css-section-meter linear both;
+    animation-timeline: view();
+    animation-range: entry 20% exit 85%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="sd-"] {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

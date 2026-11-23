@@ -1,0 +1,6 @@
+{
+  "name": "Commerce Atlas — 20 E-Commerce UI Screens",
+  "description": "A curated showcase of 20 self-contained e-commerce browsing, product detail, archive, shopping cart, and slide-over mini-cart drawer interfaces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ICFX — Image Treatment Specimen Library",
+  "description": "Twenty self-contained React and Tailwind CSS image-treatment components featuring clip-path reveals, scroll parallax, optical filters, 3D tilt, duotone frames, and interactive comparisons.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

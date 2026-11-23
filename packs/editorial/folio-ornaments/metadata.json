@@ -1,0 +1,8 @@
+{
+  "name": "Folio Ornaments",
+  "description": "Twenty self-contained React and Tailwind CSS decorative structure components with SVG ornamentation for light and dark interfaces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

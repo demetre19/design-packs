@@ -1,0 +1,6 @@
+{
+  "name": "Header Dropdown & Mega Menu Kit",
+  "description": "Ten self-contained React and Tailwind CSS desktop navigation header menus with right-anchored compact dropdowns and full-width mega panels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
