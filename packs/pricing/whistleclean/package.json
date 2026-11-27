@@ -1,0 +1,24 @@
+{
+  "name": "whistle-clean-design-system",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "preview:build": "node preview/build.mjs",
+    "preview:shots": "node preview/shots.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "1.21.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.1.18",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "esbuild": "0.25.12",
+    "tailwindcss": "4.1.18",
+    "typescript": "5.9.3"
+  }
+}

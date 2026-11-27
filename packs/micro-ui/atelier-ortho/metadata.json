@@ -1,0 +1,6 @@
+{
+  "name": "Atelier Orthogonal Blueprint Design System",
+  "description": "44-component comprehensive architectural blueprint technical drawing design system with precise dimensioning, title blocks, grid references, and cyanotype aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

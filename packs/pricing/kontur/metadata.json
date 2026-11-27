@@ -1,0 +1,6 @@
+{
+  "name": "KONTUR SYMPOSIUM '26 — Swiss Type Design System",
+  "description": "A 44-component Swiss-style 'Bleed Type' design system in pure black and white with monumental cropped typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

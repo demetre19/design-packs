@@ -1,0 +1,4 @@
+{/* Mechanism: annotated catalogue margin | Interaction: hairline extends and annotation slips right | Duration: 200ms */}
+import { ArrowUpRight } from 'lucide-react';
+import { EchoMeasure } from '../../system/echo';
+export default function Ui1(){return <a href="#ui" className="group relative inline-flex w-full max-w-[14rem] items-center justify-between overflow-hidden border-b border-ink px-1 py-3 text-ink"><EchoMeasure index="01" size="sm" surface="bg-ground"/><span className="type-micro transition-transform duration-200 ease-crisp group-hover:translate-x-2">Enrolment guide</span><ArrowUpRight size={15} className="text-accent transition-transform duration-200 ease-crisp group-hover:translate-x-1"/><span className="absolute bottom-0 left-0 h-[2px] w-8 bg-accent transition-all duration-200 ease-crisp group-hover:w-full"/></a>}

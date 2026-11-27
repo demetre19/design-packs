@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.font-mono-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+
+/* Photo collage high contrast filter */
+.collage-img {
+  filter: grayscale(100%) contrast(140%) brightness(90%);
+  object-fit: cover;
+}
+.collage-img-invert {
+  filter: grayscale(100%) contrast(160%) invert(100%);
+  object-fit: cover;
+}
+
+/* Custom scrollbar for manifesto style */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+}

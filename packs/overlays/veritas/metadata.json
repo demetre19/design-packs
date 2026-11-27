@@ -1,0 +1,6 @@
+{
+  "name": "Veritas — Institutional Design System",
+  "description": "Quiet institutional precision design system with 44 self-contained React and Tailwind components.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

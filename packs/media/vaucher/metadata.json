@@ -1,0 +1,6 @@
+{
+  "name": "Vaucher & Fils — Horological Design System",
+  "description": "A complete 44-component precision watchmaking design system in horological instrument style.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

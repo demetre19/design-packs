@@ -1,0 +1,4 @@
+{/* Mechanism: house-point tally counter | Interaction: tally slips sideways as the total changes | Duration: 200ms */}
+import { useState } from 'react';
+import { Minus,Plus } from 'lucide-react';
+export default function Ui14(){const [n,setN]=useState(128);return <div className="flex w-full max-w-[14rem] items-center justify-between border border-white/15 bg-ink p-2 text-white"><button aria-label="Decrease" onClick={()=>setN(n-1)} className="p-2 text-accent transition-transform duration-200 ease-crisp hover:translate-x-1"><Minus size={15}/></button><div key={n} className="type-display translate-x-0 text-5xl transition-transform duration-200 ease-crisp">{n}</div><button aria-label="Increase" onClick={()=>setN(n+1)} className="p-2 text-accent transition-transform duration-200 ease-crisp hover:translate-x-1"><Plus size={15}/></button></div>}

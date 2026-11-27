@@ -1,0 +1,6 @@
+{
+  "name": "Maison Vesper — Parisian Atelier Design System",
+  "description": "A complete 44-component Parisian Atelier Editorial design system for luxury fashion and slow luxury archives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

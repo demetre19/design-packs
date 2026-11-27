@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  body {
+    background-color: #0b0d10;
+    color: #ece8e1;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom utility colors & classes for Midnight Noir Precision */
+.bg-midnight {
+  background-color: #0b0d10;
+}
+.bg-lifted {
+  background-color: #13171c;
+}
+.text-gold {
+  color: #d4b06a;
+}
+.bg-gold {
+  background-color: #d4b06a;
+}
+.border-gold {
+  border-color: #d4b06a;
+}
+.border-hairline {
+  border-color: rgba(236, 232, 225, 0.1);
+}
+.border-gold-hairline {
+  border-color: rgba(212, 176, 106, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0d10;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2530;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4b06a;
+}

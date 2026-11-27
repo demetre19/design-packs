@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .bg-geneva-stripe {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  }
+  .bg-geneva-stripe-light {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(35, 42, 48, 0.02) 0px,
+      rgba(35, 42, 48, 0.02) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+  }
+  .screw-corner {
+    position: relative;
+  }
+  .screw-corner::before,
+  .screw-corner::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #2e5e8e;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .screw-corner::before {
+    top: 6px;
+    left: 6px;
+    box-shadow: calc(100% - 12px) 0 0 #2e5e8e, 0 calc(100% - 12px) 0 #2e5e8e, calc(100% - 12px) calc(100% - 12px) 0 #2e5e8e;
+  }
+}
+
+/* Custom scrollbar for horological panels */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e5e8e;
+  border-radius: 2px;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Foundry Archive Design System",
+  "description": "A museum-grade typographic history and design system with 44 archival components in Foundry Archive style.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

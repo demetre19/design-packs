@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #fdf3e7;
+    color: #3d2530;
+    font-family: 'Fredoka', 'Nunito', sans-serif;
+  }
+}
+
+.font-chunky {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+}
+

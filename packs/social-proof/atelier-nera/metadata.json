@@ -1,0 +1,6 @@
+{
+  "name": "Atelier Nera — Gallery Sans Design System",
+  "description": "A complete 44-component minimalist design system in Gallery Sans style for Atelier Nera studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

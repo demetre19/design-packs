@@ -1,0 +1,6 @@
+{
+  "name": "Titan Forge Industrial Design System",
+  "description": "A complete heavyline industrial mass design system with 44 self-contained React and Tailwind components.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

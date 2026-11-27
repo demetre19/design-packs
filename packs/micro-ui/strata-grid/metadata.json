@@ -1,0 +1,6 @@
+{
+  "name": "Strata Grid - Design System & 44 Component Library",
+  "description": "A complete website design system built with 44 self-contained React and Tailwind components in strata grid futurism style.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

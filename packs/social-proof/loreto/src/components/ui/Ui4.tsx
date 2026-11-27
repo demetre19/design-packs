@@ -1,0 +1,3 @@
+{/* Mechanism: offset keyline alignment | Interaction: secondary keyline slips laterally into register | Duration: 200ms */}
+import { EchoMeasure } from '../../system/echo';
+export default function Ui4(){return <button className="group relative h-13 overflow-hidden border border-line bg-paper px-6 py-4 text-ink active:translate-x-1"><EchoMeasure index="04" size="sm" surface="bg-paper"/><span className="type-micro relative z-10 transition-transform duration-200 ease-crisp group-hover:translate-x-2">Download prospectus</span><span className="absolute inset-x-4 bottom-2 h-px bg-line"/><span className="absolute bottom-2 left-4 h-[3px] w-8 bg-accent transition-transform duration-200 ease-crisp group-hover:translate-x-8"/></button>}

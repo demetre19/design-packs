@@ -1,0 +1,6 @@
+{
+  "name": "HAUS DER FORM — Swiss Typographic Design System",
+  "description": "A complete website design system of 44 self-contained React and Tailwind components in Swiss international typographic order.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

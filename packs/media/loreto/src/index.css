@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #10233F;
+  background: #F4F1EA;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #F4F1EA; }
+::selection { background: #C69A3A; color: #10233F; }
+
+.type-display {
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.type-editorial {
+  font-weight: 650;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
+
+.type-body {
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.012em;
+}
+
+.type-micro {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.surface-archive {
+  background-color: #FBFAF7;
+  background-image:
+    linear-gradient(rgba(16,35,63,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,35,63,0.025) 1px, transparent 1px);
+  background-size: 44px 44px, 44px 44px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #C69A3A;
+  outline-offset: 4px;
+}
+
+
+/* FLUID TYPE OVERRIDES — type scales continuously instead of jumping only at breakpoints */
+html, body { overflow-x: clip; }
+.text-xl { font-size: clamp(1.1rem, 0.98rem + 0.6vw, 1.25rem); }
+.text-2xl { font-size: clamp(1.3rem, 1.05rem + 1.2vw, 1.5rem); }
+.text-3xl { font-size: clamp(1.55rem, 1.15rem + 2vw, 1.875rem); }
+.text-4xl { font-size: clamp(1.9rem, 1.25rem + 3vw, 2.25rem); }
+.text-5xl { font-size: clamp(2.35rem, 1.4rem + 4.8vw, 3rem); }
+.text-6xl { font-size: clamp(2.75rem, 1.5rem + 6vw, 3.75rem); }
+.text-7xl { font-size: clamp(3.15rem, 1.45rem + 8vw, 4.5rem); }
+.text-8xl { font-size: clamp(3.6rem, 1.5rem + 10vw, 6rem); }
+@media (min-width: 768px) {
+  .md\:text-2xl { font-size: clamp(1.5rem, 1.2rem + 1vw, 1.65rem); }
+  .md\:text-3xl { font-size: clamp(1.875rem, 1.45rem + 1.5vw, 2.05rem); }
+  .md\:text-4xl { font-size: clamp(2.25rem, 1.65rem + 2.2vw, 2.6rem); }
+  .md\:text-5xl { font-size: clamp(3rem, 1.9rem + 3.8vw, 3.4rem); }
+  .md\:text-6xl { font-size: clamp(3.75rem, 2.1rem + 5.8vw, 4.4rem); }
+  .md\:text-7xl { font-size: clamp(4.5rem, 2.3rem + 8vw, 5.6rem); }
+  .md\:text-8xl { font-size: clamp(6rem, 3rem + 9.5vw, 7rem); }
+}

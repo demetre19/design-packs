@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/*
+  Whistle Clean design system tokens.
+  Palette: ground, ink, accent (teal), restrained secondary (mist). Hairline and muted are derived from ink.
+  One family: Instrument Sans (variable width + weight), three voices: Display, Body, Label.
+*/
+@theme {
+  --color-ground: #fbfdfc;
+  --color-paper: #ffffff;
+  --color-ink: #0f2a27;
+  --color-teal: #166f64;
+  --color-mist: #ddefea;
+  --color-line: #d3e0dc;
+  --color-muted: #52706a;
+
+  --font-sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --ease-care: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-sweep: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --radius-card: 14px;
+}
+
+@layer base {
+  html { background: var(--color-ground); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  body { font-size: 16px; line-height: 1.6; }
+  :focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; }
+  ::selection { background: var(--color-mist); color: var(--color-ink); }
+}
+
+/* ---------- Voices ---------- */
+@utility wc-display {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+@utility wc-heading {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+@utility wc-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-stretch: 85%;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+@utility wc-figure {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* ---------- Surface ---------- */
+/* Freshly wiped laminate: flat white, one hairline, no shadow. */
+@utility wc-surface {
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+}
+/* Measured plate: mist ground ruled with a faint 24px inspection grid. */
+@utility wc-plate {
+  background-color: var(--color-mist);
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-teal) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-teal) 9%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@property --wc-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes wc-lap { from { --wc-a: 0deg; } to { --wc-a: 360deg; } }
+
+@layer components {
+/* ================= The Leaf (reserved) ================= */
+/* Used only for trees, the certificate seal and the overnight timeline, never as decoration or on controls.
+   A narrow eucalyptus leaf lifted 12deg from its stem; when its host is hovered or the leaf is active it lowers
+   to -2deg and fills teal. It pivots only about its stem. */
+.wc-leaf {
+  position: absolute;
+  width: 34px;
+  height: 14px;
+  transform-origin: 2% 62%;
+  transform: rotate(-12deg);
+  transition: transform 260ms var(--ease-care);
+  pointer-events: none;
+  overflow: visible;
+}
+.wc-leaf .blade { fill: var(--leaf-bg, var(--color-ground)); stroke: var(--color-teal); stroke-width: 1.4; transition: fill 260ms var(--ease-care); }
+.wc-leaf .rib { fill: none; stroke: var(--color-teal); stroke-width: 1; transition: stroke 260ms var(--ease-care); }
+/* A host settles only its own leaves: @scope stops at any nested host, so hovering a card never moves the leaf of a button inside it. */
+@scope (.wc-leaf-host) to (.wc-leaf-host) {
+  :scope:is(:hover, :focus-visible, :focus-within) .wc-leaf { transform: rotate(-2deg); }
+  :scope:is(:hover, :focus-visible, :focus-within) .wc-leaf .blade { fill: var(--color-teal); }
+  :scope:is(:hover, :focus-visible, :focus-within) .wc-leaf .rib { stroke: var(--color-mist); }
+  :scope:is(:hover, :focus-visible, :focus-within) .wc-leaf-reverse .blade { fill: var(--color-paper); }
+  :scope:is(:hover, :focus-visible, :focus-within) .wc-leaf-reverse .rib { stroke: var(--color-teal); }
+}
+/* Reversed leaf for teal grounds: mist line, teal notch, settles to a white blade with a teal rib. */
+.wc-leaf-reverse .blade { stroke: var(--color-mist); }
+.wc-leaf-reverse .rib { stroke: var(--color-mist); }
+.wc-leaf-reverse[data-active="true"] .blade { fill: var(--color-paper); }
+.wc-leaf-reverse[data-active="true"] .rib { stroke: var(--color-teal); }
+.wc-leaf[data-active="true"] { transform: rotate(-2deg); }
+.wc-leaf[data-active="true"] .blade { fill: var(--color-teal); }
+.wc-leaf[data-active="true"] .rib { stroke: var(--color-mist); }
+
+/* ================= Detail kit 2: Edge Glint ================= */
+.wc-glint {
+  --wc-a: 0deg;
+  padding: 1.5px;
+  border-radius: var(--wc-r, 16px);
+  background: conic-gradient(from var(--wc-a), var(--color-line) 0deg, var(--color-line) 292deg, var(--color-teal) 330deg, var(--color-line) 352deg, var(--color-line) 360deg);
+}
+.wc-glint > .wc-glint-face { background: var(--color-paper); border-radius: calc(var(--wc-r, 16px) - 1.5px); height: 100%; }
+.wc-glint:is(:hover, :focus-within) { animation: wc-lap 900ms var(--ease-sweep) 1 both; }
+
+
+}
+
+/* ================= THE ECHO: the Wipe ================= */
+/* A teal hairline that draws itself left to right along an existing rule when its host is hovered or focused,
+   like a cloth run once along an edge. */
+@layer components {
+  .wc-draw { display: block; height: 1px; background: var(--color-teal); clip-path: inset(0 100% 0 0); transition: clip-path 300ms var(--ease-care); }
+  .wc-draw[data-active="true"] { clip-path: inset(0 0 0 0); }
+  /* The Wipe answers only things that can be clicked or typed into: links, buttons, labels around fields, tabs. */
+  @scope (.wc-draw-host) to (.wc-draw-host) {
+    :scope:is(a, button, label, summary, [role="tab"], [role="button"], [role="switch"]):is(:hover, :focus-visible, :focus-within) .wc-draw,
+    :scope:has(input, select, textarea):focus-within .wc-draw { clip-path: inset(0 0 0 0); }
+  }
+}
+
+/* ---------- Motion safety ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .wc-leaf, .wc-leaf .blade, .wc-leaf .rib, .wc-draw { transition-duration: 1ms !important; }
+  *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+  .wc-glint:is(:hover, :focus-within) { animation: none; background: var(--color-teal); }
+}

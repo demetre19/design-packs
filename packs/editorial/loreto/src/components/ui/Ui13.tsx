@@ -1,0 +1,4 @@
+{/* Mechanism: archive verification stamp | Interaction: stamp plate slides horizontally into position when confirmed | Duration: 200ms */}
+import { useState } from 'react';
+import { Stamp } from 'lucide-react';
+export default function Ui13(){const [ok,setOk]=useState(false);return <button onClick={()=>setOk(!ok)} className="relative h-16 w-full max-w-[13rem] overflow-hidden border border-ink bg-paper text-left text-ink"><span className="type-micro absolute left-4 top-4">Verify record</span><span className={`absolute right-4 top-3 flex items-center gap-2 transition-transform duration-200 ease-crisp ${ok?'translate-x-0 text-accent':'translate-x-16 text-secondary'}`}><Stamp size={17}/><span className="type-micro text-[9px]">{ok?'Verified':'Pending'}</span></span><span className={`absolute bottom-0 left-0 h-[3px] bg-accent transition-all duration-200 ease-crisp ${ok?'w-full':'w-12'}`}/></button>}

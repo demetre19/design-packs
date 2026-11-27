@@ -1,0 +1,4 @@
+{/* Mechanism: register folio stepper | Interaction: folio tab steps laterally through the ledger | Duration: 200ms */}
+import { useState } from 'react';
+import { ChevronLeft,ChevronRight } from 'lucide-react';
+export default function Ui8(){const [n,setN]=useState(2);return <div className="flex w-full max-w-[14rem] items-center justify-between border border-ink bg-paper text-ink"><button aria-label="Previous" onClick={()=>setN(Math.max(1,n-1))} className="p-3 transition-transform duration-200 ease-crisp hover:translate-x-1"><ChevronLeft size={16}/></button><div className="relative flex-1 text-center"><span className="type-display text-4xl text-ink/15">0{n}</span><span className="type-micro absolute inset-x-0 top-1/2 -translate-y-1/2">Folio {n}</span></div><button aria-label="Next" onClick={()=>setN(Math.min(9,n+1))} className="p-3 transition-transform duration-200 ease-crisp hover:translate-x-1"><ChevronRight size={16}/></button></div>}

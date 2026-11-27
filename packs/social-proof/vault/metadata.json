@@ -1,0 +1,6 @@
+{
+  "name": "VAULT* // Blackletter Editorial Design System",
+  "description": "A 44-component print-native editorial design system in stark black-and-white high contrast grotesque typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

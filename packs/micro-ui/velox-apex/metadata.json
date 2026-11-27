@@ -1,0 +1,6 @@
+{
+  "name": "VELOX APEX // Design System",
+  "description": "Overrun scale-contrast editorial design system with 44 components in pure white, black ink, and signal red-orange.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

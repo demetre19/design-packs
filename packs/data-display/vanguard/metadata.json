@@ -1,0 +1,6 @@
+{
+  "name": "VANGUARD HYPERSONICS // Flight Test System",
+  "description": "Experimental aerospace flight-test telemetry design system and component library.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

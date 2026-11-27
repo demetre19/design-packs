@@ -1,0 +1,4 @@
+{/* Mechanism: registrar's advancing measure | Interaction: cropped numeral and notch travel right; active compresses travel distance | Duration: 200ms */}
+import { ArrowRight } from 'lucide-react';
+import { EchoMeasure } from '../../system/echo';
+export default function Ui3(){return <button className="group relative h-14 overflow-hidden border border-ink bg-ink px-7 text-white active:translate-x-1"><EchoMeasure index="03" tone="dark" size="sm" surface="bg-ink"/><span className="type-micro relative z-10 flex items-center gap-3">Book a tour <ArrowRight size={15} className="text-accent transition-transform duration-200 ease-crisp group-hover:translate-x-2"/></span><span className="absolute bottom-0 left-0 h-[3px] w-14 bg-accent transition-all duration-200 ease-crisp group-hover:w-full"/></button>}

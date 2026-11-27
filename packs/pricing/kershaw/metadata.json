@@ -1,0 +1,6 @@
+{
+  "name": "Kershaw Dynamics // Dyno Cell Telemetry Lab",
+  "description": "Professional motorsport engineering & high-performance engine dyno telemetry design system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

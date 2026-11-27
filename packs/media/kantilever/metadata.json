@@ -1,0 +1,6 @@
+{
+  "name": "KANTILEVER // Architectural Design System & Component Library",
+  "description": "Complete 44-component architecture design system following meridian angle diagonal architecture principles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

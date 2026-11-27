@@ -1,0 +1,6 @@
+{
+  "name": "STUDIO STERLING — Curriculum Design System",
+  "description": "A complete 44-component brutal-elegant printed CV/resume design system in strict black and white.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
